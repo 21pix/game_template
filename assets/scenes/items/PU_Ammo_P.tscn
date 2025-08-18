@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dutu1x0doesdw"]
+
+[ext_resource type="Script" uid="uid://djuh5wa4f4jr8" path="res://scripts/objects/pu_ammo_P.gd" id="1_iwtai"]
+[ext_resource type="Texture2D" uid="uid://bak3s5sp8wq7w" path="res://assets/textures/items/ammo_pistol.png" id="2_a6m6s"]
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5vsu"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jly02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i4py"]
+albedo_texture = ExtResource("2_a6m6s")
+uv1_scale = Vector3(3, 2, 3)
+
+[node name="ammo_P" type="Area3D" groups=["AmmoPickups", "ammo_P"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+collision_layer = 65
+collision_mask = 3
+script = ExtResource("1_iwtai")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a5vsu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jly02")
+surface_material_override/0 = SubResource("StandardMaterial3D_2i4py")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

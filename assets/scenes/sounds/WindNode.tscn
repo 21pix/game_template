@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2crul7oakrq"]
+
+[ext_resource type="AudioStream" uid="uid://da0lwuhk7drrn" path="res://assets/sounds/environement/wind_low.mp3" id="1_8w2cv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_8w2cv")
+volume_db = -10.0
+unit_size = 100.0
+autoplay = true
+parameters/looping = true

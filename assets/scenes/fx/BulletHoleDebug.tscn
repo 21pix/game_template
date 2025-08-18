@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://npvtwc4vbs7s"]
+
+[ext_resource type="AudioStream" uid="uid://el5il1nk0dkw" path="res://assets/sounds/weapons/whine_1.ogg" id="2_fum8w"]
+[ext_resource type="PackedScene" uid="uid://c3fh7tor0iex6" path="res://assets/scenes/fx/BulletHoleSStatic.tscn" id="2_xt1uu"]
+[ext_resource type="AudioStream" uid="uid://dwtd2k3n02cnd" path="res://assets/sounds/weapons/whine_2.ogg" id="3_hu2lv"]
+[ext_resource type="AudioStream" uid="uid://cu6rx2by2vmgu" path="res://assets/sounds/weapons/whine_3.ogg" id="4_8tdch"]
+[ext_resource type="AudioStream" uid="uid://cblkdhtimaout" path="res://assets/sounds/weapons/whine_4.ogg" id="5_n8w84"]
+
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rl77x"]
+playback_mode = 1
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("2_fum8w")
+stream_1/stream = ExtResource("3_hu2lv")
+stream_2/stream = ExtResource("4_8tdch")
+stream_3/stream = ExtResource("5_n8w84")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" parent="." instance=ExtResource("2_xt1uu")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_rl77x")
+volume_db = -10.0
+max_db = 0.0
+autoplay = true

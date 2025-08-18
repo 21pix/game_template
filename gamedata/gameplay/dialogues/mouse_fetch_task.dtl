@@ -1,0 +1,45 @@
+if {GlobalsDialogue.mouse_task_dialogue_done} == false:
+	set {GlobalsNpc.dial_no_move} = true
+	if {GlobalsGameManager.mouse_task_given} == false:
+		mouse: I'm looking for someone for a quick errand. Interested ?
+		player: Why not, what is it about?
+		mouse: I need a couple of medkits.
+		player: <Empty Text Event>
+		- Ok I'll find you that.
+			set {GlobalsNpc.new_task} = "mouse_task"
+			[signal arg="task_started_ui"]
+			[signal arg="mouse_task_started_logic"]
+			set {GlobalsNpc.dial_no_move} = false
+			set {GlobalsGameManager.mouse_task_given} = true
+			[end_timeline]
+		- No, sounds boring.
+			set {GlobalsGameManager.mouse_task_failed} = true
+			set {GlobalsNpc.dial_no_move} = false
+			[end_timeline]
+	
+	[signal arg="check_player_object"]
+	if {GlobalsGameManager.mouse_task_given} == true and {GlobalsGameManager.mouse_task_executed} == false:
+		mouse: So what about those kits ?
+		player: <Empty Text Event>
+		- It's coming, don't worry
+			set {GlobalsNpc.dial_no_move} = false
+			[end_timeline]
+		- I can't fing any. I'm out.
+			set {GlobalsNpc.new_task} = "mouse_task"
+			[signal arg="task_failed_ui"]
+			set {GlobalsGameManager.mouse_task_failed} = true
+			set {GlobalsNpc.dial_no_move} = false
+			[end_timeline]
+	
+	if {GlobalsGameManager.mouse_task_executed} == true:
+		set {GlobalsNpc.dial_no_move} = true
+		mouse: Well, did you find that stuff for me?
+		player: Yes I did. Here they are..
+		[signal arg="mouse_get_items"]
+		mouse: Cool, that is for you. Thanks..
+		[signal arg="mouse_send_reward"]
+		set {GlobalsGameManager.mouse_task_complete} = true
+		set {GlobalsNpc.dial_no_move} = false
+		set {GlobalsDialogue.mouse_task_dialogue_done} = true
+		[signal arg="special_dial_end"]
+		[end_timeline]

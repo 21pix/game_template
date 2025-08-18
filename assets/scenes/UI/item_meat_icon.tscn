@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d188fgbfw5im2"]
+
+[ext_resource type="Texture2D" uid="uid://c1qswabemurlb" path="res://assets/textures/items/item_meat_icon.png" id="1_smg8r"]
+
+[node name="ItemMeatIcon" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_smg8r")

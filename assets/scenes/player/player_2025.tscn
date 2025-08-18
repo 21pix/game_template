@@ -1,0 +1,435 @@
+[gd_scene load_steps=33 format=3 uid="uid://bya7of5y6toye"]
+
+[ext_resource type="Script" uid="uid://b35tqt7pc3wx" path="res://scripts/player/player4.gd" id="1_x2iv0"]
+[ext_resource type="Script" uid="uid://bbd7moppjc3sn" path="res://addons/procedural-recoil/recoil.gd" id="2_6yloj"]
+[ext_resource type="Script" uid="uid://flelht8kgdxs" path="res://scripts/weapons/weapons_Manager.gd" id="3_k1jwo"]
+[ext_resource type="SpriteFrames" uid="uid://dbv3sy5qjatnl" path="res://assets/animations/fx/burst_animation.tres" id="4_lywgr"]
+[ext_resource type="Script" uid="uid://ccw4gl0oi266j" path="res://scripts/player/spot_light_3d.gd" id="5_wuyhj"]
+[ext_resource type="Script" uid="uid://877dyenbi3k7" path="res://scripts/objects/interact_detect.gd" id="6_i17j4"]
+[ext_resource type="Script" uid="uid://bkfirsi8oex2c" path="res://scripts/UI/hud.gd" id="8_obqgw"]
+[ext_resource type="Texture2D" uid="uid://7l0yr133d8qq" path="res://assets/textures/weapons/crosshair012.png" id="9_kfx02"]
+[ext_resource type="Texture2D" uid="uid://dh1wuwaaa57u6" path="res://assets/textures/UI/ammo_box.png" id="10_pumj4"]
+[ext_resource type="FontFile" uid="uid://cm4yah746ilnd" path="res://assets/fonts/Ubuntu-Regular.ttf" id="11_8ac1b"]
+[ext_resource type="FontFile" uid="uid://c5tvexykhe6fs" path="res://assets/fonts/Ubuntu-Medium.ttf" id="12_h0jec"]
+[ext_resource type="Texture2D" uid="uid://dgfxpfgsmgfli" path="res://assets/textures/UI/UI_splatter.dds" id="13_fmbbj"]
+[ext_resource type="Script" uid="uid://desesbx2fwj5w" path="res://scripts/inventory/inventory.gd" id="14_ot0qc"]
+[ext_resource type="Script" uid="uid://blckpqox8erin" path="res://scripts/autoload/VarManager.gd" id="15_pyjcd"]
+[ext_resource type="AudioStream" uid="uid://cysefthhtrtg" path="res://assets/sounds/player/footstep2.mp3" id="16_ue4ap"]
+[ext_resource type="Resource" uid="uid://b7crtqes4db0w" path="res://assets/resources/player/player_supplies.tres" id="16_vljct"]
+[ext_resource type="AudioStream" uid="uid://bo27s3pm3ps85" path="res://assets/sounds/player/footstep.mp3" id="17_dt2h8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tars"]
+size = Vector3(0.080188, 0.0655396, 1.35823)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2sm7"]
+font = ExtResource("11_8ac1b")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxtxa"]
+font = ExtResource("12_h0jec")
+font_size = 14
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6fdg7"]
+diffuse_texture = ExtResource("13_fmbbj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_12bxm"]
+font = ExtResource("12_h0jec")
+font_size = 22
+
+[sub_resource type="Animation" id="Animation_nrmxt"]
+resource_name = "Running"
+length = 0.7
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerStream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_dt2h8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_dt2h8")
+}],
+"times": PackedFloat32Array(0, 0.35)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_vw1pg"]
+resource_name = "Walking"
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerStream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_dt2h8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_dt2h8")
+}],
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ykvg"]
+_data = {
+&"Running": SubResource("Animation_nrmxt"),
+&"Walking": SubResource("Animation_vw1pg")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22vfa"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="Animation" id="Animation_wu5sp"]
+resource_name = "ContIdle"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponContainer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.5, 1, 0.003, 0, 0, 1, 3, 1, 0, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponContainer/WeaponSlot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.5, 1, 0, 0.012, 0, 3, 1, 0, 0, 0)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponContainer/WeaponSlot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.00523599, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c4tr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponContainer/WeaponSlot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3uu0h"]
+_data = {
+&"ContIdle": SubResource("Animation_wu5sp"),
+&"RESET": SubResource("Animation_c4tr6")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ft0p8"]
+radius = 0.3
+height = 2.32122
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22ln5"]
+size = Vector3(0.138672, 0.220459, 0.848389)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xff14"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Player" type="CharacterBody3D" groups=["Player", "PlayerFriend_to_f1", "PlayerFriend_to_f2"]]
+collision_layer = 2
+collision_mask = 341
+script = ExtResource("1_x2iv0")
+equip = ExtResource("16_vljct")
+run_speed = 8
+gravity = 3.0
+mouse_sensitivity = 800
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
+script = ExtResource("2_6yloj")
+pistol_recoil = Vector3(0.08, 0, 0)
+shotgun_recoil = Vector3(0.1, 0, 0)
+shotgun_aimRecoil = Vector3(0.2, 0, 0)
+shotgun_zRecoil = 0.05
+rifle_recoil = Vector3(0.03, 0, 0)
+rifle_zRecoil = 0.015
+snappiness = 20.0
+returnSpeed = 3.0
+
+[node name="Camera" type="Camera3D" parent="Head"]
+current = true
+fov = 40.0
+
+[node name="Bullet_Point" type="Marker3D" parent="Head/Camera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030007, -0.041273, -0.0309)
+
+[node name="RayCast" type="RayCast3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.02, 0)
+exclude_parent = false
+target_position = Vector3(0, 0, -10)
+collision_mask = 21
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0.14027, 0.780372, 1)
+
+[node name="WeaponContainer" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.12, 0)
+script = ExtResource("3_k1jwo")
+WeaponContainer_offset = Vector3(0.15, -0.15, 0)
+
+[node name="WeaponSlot" type="Node3D" parent="Head/Camera/WeaponContainer"]
+
+[node name="aimPos" type="Marker3D" parent="Head/Camera/WeaponContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.085, 0)
+
+[node name="Muzzle" type="AnimatedSprite3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2.65, -6)
+layers = 2
+sprite_frames = ExtResource("4_lywgr")
+frame = 2
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.12019)
+visible = false
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 40.0
+spot_angle = 23.79
+script = ExtResource("5_wuyhj")
+
+[node name="InteractDetect" type="Area3D" parent="Head/Camera" groups=["InteractDetect"]]
+collision_layer = 2
+collision_mask = 64
+script = ExtResource("6_i17j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera/InteractDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00958862, -0.0143372, -1.33327)
+shape = SubResource("BoxShape3D_2tars")
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera/InteractDetect"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 64
+collide_with_areas = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("8_obqgw")
+
+[node name="Crosshair" type="TextureRect" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -41.0
+offset_right = 34.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(30, 48)
+texture = ExtResource("9_kfx02")
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 1.0
+anchor_right = 0.001
+anchor_bottom = 1.0
+offset_left = 0.4
+offset_top = -92.0
+offset_right = 256.4
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.199999, 0.199999)
+texture = ExtResource("10_pumj4")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -75.0
+offset_right = 54.0
+offset_bottom = -52.0
+grow_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentAmmo" type="Label" parent="HUD/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 137.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Current Weapon:"
+label_settings = SubResource("LabelSettings_g2sm7")
+
+[node name="CurrentWeapon" type="Label" parent="HUD/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_wxtxa")
+
+[node name="PlayerHitRect" type="TextureRect" parent="HUD"]
+visible = false
+modulate = Color(1, 1, 1, 0.560784)
+anchors_preset = -1
+anchor_top = -0.34
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 149.0
+offset_right = 29.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_6fdg7")
+expand_mode = 3
+
+[node name="HealthBar" type="ProgressBar" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_right = 147.0
+offset_bottom = -6.0
+show_percentage = false
+
+[node name="E interact" type="VBoxContainer" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 14.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/E interact"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/E interact/HBoxContainer"]
+layout_mode = 2
+text = "E"
+label_settings = SubResource("LabelSettings_12bxm")
+
+[node name="Inventory" type="GridContainer" parent="HUD" groups=["inventory"]]
+custom_minimum_size = Vector2(600, 100)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -621.0
+offset_top = -108.0
+offset_right = -21.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 6
+script = ExtResource("14_ot0qc")
+
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("15_pyjcd")
+
+[node name="PlayerAudio" type="Node" parent="."]
+
+[node name="PlayerStream" type="AudioStreamPlayer" parent="PlayerAudio"]
+stream = ExtResource("16_ue4ap")
+volume_db = -20.0
+
+[node name="AnimPlayerAudio" type="AnimationPlayer" parent="PlayerAudio"]
+libraries = {
+&"": SubResource("AnimationLibrary_7ykvg")
+}
+
+[node name="FootstepFreq" type="Timer" parent="PlayerAudio"]
+one_shot = true
+
+[node name="WeaponStream" type="AudioStreamPlayer" parent="PlayerAudio"]
+
+[node name="PlayerDetect" type="Area3D" parent="." groups=["TargetPlayer"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.479592, 0)
+shape = SubResource("BoxShape3D_22vfa")
+
+[node name="ContPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Head/Camera")
+libraries = {
+&"": SubResource("AnimationLibrary_3uu0h")
+}
+
+[node name="CollisionWithWorld" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15878, 0)
+shape = SubResource("CapsuleShape3D_ft0p8")
+
+[node name="CollisionWithWalls" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 1.9, -0.686)
+shape = SubResource("BoxShape3D_22ln5")
+
+[node name="MeetDetect" type="Area3D" parent="."]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeetDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.514, -0.432644)
+shape = SubResource("BoxShape3D_xff14")
+
+[connection signal="area_entered" from="Head/Camera/InteractDetect" to="Head/Camera/InteractDetect" method="_on_area_entered"]
+[connection signal="area_entered" from="Head/Camera/InteractDetect" to="HUD" method="_on_interact_detect_area_entered"]
+[connection signal="area_exited" from="Head/Camera/InteractDetect" to="Head/Camera/InteractDetect" method="_on_area_exited"]
+[connection signal="area_exited" from="Head/Camera/InteractDetect" to="HUD" method="_on_interact_detect_area_exited"]
+[connection signal="timeout" from="Cooldown" to="Head/Camera/WeaponContainer" method="_on_cooldown_timeout"]
+[connection signal="updateAmmo_P" from="Manager" to="HUD" method="_on_manager_update_ammo_p"]
+[connection signal="updateAmmo_R" from="Manager" to="HUD" method="_on_manager_update_ammo_r"]
+[connection signal="updateAmmo_S" from="Manager" to="HUD" method="_on_manager_update_ammo_s"]

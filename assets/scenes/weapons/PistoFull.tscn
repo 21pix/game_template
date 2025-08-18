@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vycfx86vcyv"]
+
+[ext_resource type="PackedScene" uid="uid://bn5krfwum2qmy" path="res://assets/scenes/weapons/Pistol.tscn" id="1_udqew"]
+[ext_resource type="PackedScene" uid="uid://d1m01fw12v7qw" path="res://assets/scenes/weapons/Pistolarms.tscn" id="2_jasnw"]
+
+[node name="PistoFull" type="Node3D"]
+
+[node name="pistol" parent="." instance=ExtResource("1_udqew")]
+script = null
+
+[node name="armsPistol" parent="." instance=ExtResource("2_jasnw")]
+script = null

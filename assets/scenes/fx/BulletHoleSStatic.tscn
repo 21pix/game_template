@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3fh7tor0iex6"]
+
+[ext_resource type="Texture2D" uid="uid://crywxtqfw0qpt" path="res://assets/textures/FX/BHoleSingleStatic.png" id="5_jihsh"]
+
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+texture = ExtResource("5_jihsh")

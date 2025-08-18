@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterDialogs" load_steps=2 format=3 uid="uid://bh76f0xbscohe"]
+
+[ext_resource type="Script" uid="uid://br3ro62d6bg7q" path="res://CharResources/CharDialogs.gd" id="1_gwwqp"]
+
+[resource]
+script = ExtResource("1_gwwqp")
+Dialogs = Array[Resource]([])
+metadata/_custom_type_script = "uid://br3ro62d6bg7q"

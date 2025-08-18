@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bosmglflgi5e6"]
+
+[ext_resource type="PackedScene" uid="uid://bvu53fhmremd8" path="res://assets/scenes/weapons/wpn_rifle.tscn" id="1_6q0d2"]
+[ext_resource type="PackedScene" uid="uid://qkyhge55630g" path="res://assets/scenes/weapons/wpn_rifle_arms.tscn" id="2_15wsq"]
+[ext_resource type="PackedScene" uid="uid://cvndxaaficoxb" path="res://assets/scenes/weapons/rifleMuzzleFlash.tscn" id="3_ybcf7"]
+
+[node name="RifleFull" type="Node3D"]
+
+[node name="wpn_rifle" parent="." instance=ExtResource("1_6q0d2")]
+script = null
+
+[node name="wpn_rifle_arms" parent="." instance=ExtResource("2_15wsq")]
+
+[node name="RifleMuzzleFlash" parent="." instance=ExtResource("3_ybcf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.860734)
+script = null

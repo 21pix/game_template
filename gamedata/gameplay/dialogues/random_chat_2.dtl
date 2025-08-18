@@ -1,0 +1,5 @@
+set {GlobalsNpc.dial_no_move} = true
+default_npc: So, you need anything ?
+player: Yes, do you have a smoke ? 
+default_npc: No, sorry man.
+set {GlobalsNpc.dial_no_move} = false

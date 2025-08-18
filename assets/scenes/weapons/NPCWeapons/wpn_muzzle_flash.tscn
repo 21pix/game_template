@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://6ek08psnijlg"]
+
+[ext_resource type="Script" uid="uid://ftlqort0slhv" path="res://scripts/weapons/NPC_muzzle_flash.gd" id="1_5qcy3"]
+[ext_resource type="Texture2D" uid="uid://bqhj3u6wph8ns" path="res://assets/textures/FX/MuzzleFlash_Shotgun_Alba.dds" id="2_x0cqx"]
+[ext_resource type="Texture2D" uid="uid://camtqkkkhyss2" path="res://assets/textures/FX/bullet_trail_alba.dds" id="3_x0cqx"]
+
+[sub_resource type="Curve" id="Curve_8pbu1"]
+_limits = [0.0, 25.0, 0.0, 1.0]
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_3eg7k"]
+curve = SubResource("Curve_8pbu1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dbuti"]
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+emission_curve = SubResource("CurveTexture_3eg7k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0bah"]
+transparency = 1
+albedo_texture = ExtResource("2_x0cqx")
+emission_enabled = true
+emission_energy_multiplier = 2.07
+emission_texture = ExtResource("2_x0cqx")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_hm1pu"]
+material = SubResource("StandardMaterial3D_h0bah")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0cqx"]
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+scale_min = 0.9
+scale_max = 1.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajpkm"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("3_x0cqx")
+emission_enabled = true
+emission_texture = ExtResource("3_x0cqx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gty1o"]
+material = SubResource("StandardMaterial3D_ajpkm")
+center_offset = Vector3(0.685, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x0cqx"]
+size = Vector3(0.05, 0.05, 20)
+
+[node name="wpn_muzzle_flash" type="Node3D"]
+script = ExtResource("1_5qcy3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0.016452, 2.32831e-10, -1.5547e-09)
+emitting = false
+amount = 2
+lifetime = 0.1
+one_shot = true
+speed_scale = 25.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_dbuti")
+draw_pass_1 = SubResource("QuadMesh_hm1pu")
+
+[node name="BulletTrail" type="GPUParticles3D" parent="."]
+transform = Transform3D(-2.18557e-08, -3, 0, 0.5, -1.31134e-07, 0, 0, 0, 0.5, 1.54268, -0.343734, 0)
+emitting = false
+amount = 1
+lifetime = 0.15
+one_shot = true
+speed_scale = 38.33
+randomness = 0.26
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_x0cqx")
+draw_pass_1 = SubResource("QuadMesh_gty1o")
+
+[node name="DebugAlign" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.0328, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x0cqx")

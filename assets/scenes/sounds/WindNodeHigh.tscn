@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://8moaklm87wgg"]
+
+[ext_resource type="AudioStream" uid="uid://bpky66ehcn6ib" path="res://assets/sounds/environement/wind_high2.mp3" id="1_bd324"]
+
+[node name="WindHigh" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_bd324")
+volume_db = -10.0
+unit_size = 100.0
+autoplay = true
+parameters/looping = true

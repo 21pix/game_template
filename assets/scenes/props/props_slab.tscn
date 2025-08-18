@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7vk47d48nglh"]
+
+[ext_resource type="Texture2D" uid="uid://de6fr8of6nbk2" path="res://assets/textures/props/wall_4_slab_BaseColor.png" id="1_h1r41"]
+[ext_resource type="Texture2D" uid="uid://djcjkqifaf03q" path="res://assets/textures/props/wall_4_slab_Normal.png" id="2_vr6y3"]
+[ext_resource type="Texture2D" uid="uid://1ob3j1pnkeoo" path="res://assets/textures/props/wall_4_slab_Roughness.png" id="3_svy4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gaks"]
+size = Vector3(1.2, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6caub"]
+size = Vector3(1.2, 0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b0qo"]
+albedo_texture = ExtResource("1_h1r41")
+roughness_texture = ExtResource("3_svy4q")
+normal_enabled = true
+normal_texture = ExtResource("2_vr6y3")
+uv1_scale = Vector3(1, 0.5, 1)
+
+[node name="PropsSlab" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_2gaks")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_6caub")
+surface_material_override/0 = SubResource("StandardMaterial3D_4b0qo")

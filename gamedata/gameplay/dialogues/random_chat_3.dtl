@@ -1,0 +1,11 @@
+set {GlobalsNpc.dial_no_move} = true
+default_npc: You again ?
+player: Ah, see ? We're almost friends now.
+default_npc: No, not really. \
+What do you want exactly ?
+player: <Empty Text Event>
+- Ok, I'm looking for a guy.
+	default_npc: Yeah well, he's not here. Bye.
+- I like it here, I think.
+	default_npc: Well don't get too comfy, we may change our opinions about you.
+set {GlobalsNpc.dial_no_move} = false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="character_weapon" load_steps=5 format=3 uid="uid://cofnjm6cfqbpq"]
+
+[ext_resource type="PackedScene" uid="uid://6ek08psnijlg" path="res://assets/scenes/weapons/NPCWeapons/wpn_muzzle_flash.tscn" id="1_67w6a"]
+[ext_resource type="Script" uid="uid://cx1m4mnrq4isj" path="res://assets/resources/characters_weapons/CharWpn_res.gd" id="2_67w6a"]
+[ext_resource type="PackedScene" uid="uid://yug67ra1bvd7" path="res://assets/scenes/weapons/NPCWeapons/wpn_npc_rifle.tscn" id="3_2b061"]
+[ext_resource type="AudioStream" uid="uid://d0dqv424ec4m5" path="res://assets/sounds/weapons/NPC_rifle3.mp3" id="4_vij3j"]
+
+[resource]
+script = ExtResource("2_67w6a")
+wpn_name = "rifle"
+wpn_ammo = "ammo_rifle"
+wpn_model = ExtResource("3_2b061")
+wpn_sound = ExtResource("4_vij3j")
+wpn_position = Vector3(0.065, 0.021, 0)
+wpn_rotation = Vector3(-10.4, -93.1, -89.4)
+max_distance = 200
+damage = 20.0
+spread = 0.01
+shot_count = 12
+shot_time = 5.0
+muz_model = ExtResource("1_67w6a")
+muz_position = Vector3(0.764, -0.106, 0.122)
+muz_rotation = Vector3(-2, -2.9, -10.4)
+metadata/_custom_type_script = "uid://cx1m4mnrq4isj"

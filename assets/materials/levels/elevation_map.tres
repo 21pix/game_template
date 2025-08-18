@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dyyin2yejkhap"]
+
+[ext_resource type="Texture2D" uid="uid://c8n0uywr17yga" path="res://models/Textures/Terrain/terrain_test1_dirt.dds" id="1_3422s"]
+[ext_resource type="Texture2D" uid="uid://d3tfj23nh1nx1" path="res://models/map/TestAI_1/grnd_land_01.dds" id="2_glukq"]
+[ext_resource type="Texture2D" uid="uid://bt8r166lfhx5q" path="res://models/Textures/Terrain/terrain_nm.png" id="3_3422s"]
+
+[resource]
+albedo_color = Color(0.88, 0.859467, 0.8448, 1)
+albedo_texture = ExtResource("1_3422s")
+metallic_specular = 0.51
+roughness = 0.82
+normal_enabled = true
+normal_scale = 2.6
+normal_texture = ExtResource("3_3422s")
+detail_enabled = true
+detail_blend_mode = 3
+detail_uv_layer = 1
+detail_albedo = ExtResource("2_glukq")
+detail_normal = ExtResource("3_3422s")
+uv1_scale = Vector3(20, 20, 20)
+uv2_scale = Vector3(40, 40, 40)

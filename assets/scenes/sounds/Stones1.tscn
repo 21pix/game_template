@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyv2ccpv43te7"]
+
+[ext_resource type="AudioStream" uid="uid://oy4gsuq8arie" path="res://assets/sounds/environement/StonesHigh.mp3" id="1_xpcgi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_xpcgi")
+volume_db = -8.0
+unit_size = 100.0
+autoplay = true
+max_distance = 400.0
+parameters/looping = true

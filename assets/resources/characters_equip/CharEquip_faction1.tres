@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Character_Equip" load_steps=6 format=3 uid="uid://dtbbhoricu57e"]
+
+[ext_resource type="Resource" uid="uid://dev06ytp7vntu" path="res://assets/resources/characters_weapons/CharWpn_rifle2.tres" id="1_qfhbc"]
+[ext_resource type="Resource" uid="uid://cofnjm6cfqbpq" path="res://assets/resources/characters_weapons/CharWpn_rifle.tres" id="2_tdvim"]
+[ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_huqfq"]
+[ext_resource type="Script" uid="uid://xjt86gvsc7h3" path="res://assets/resources/characters_equip/CharEquip.gd" id="4_giput"]
+[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="5_6n05a"]
+
+[resource]
+script = ExtResource("4_giput")
+skin_folder = "res://assets/textures/characters_resources/skins/faction1"
+Name = "fox"
+Faction = "rats"
+type = "generic"
+Weapon1 = ExtResource("1_qfhbc")
+Weapon2 = ExtResource("2_tdvim")
+Weapon3 = ExtResource("3_huqfq")
+reacts_to = "enemy_to_F1"
+supplies = ExtResource("5_6n05a")
+char_dialogs_special = Array[Resource]([])
+enemy_suffix = "_to_f1"

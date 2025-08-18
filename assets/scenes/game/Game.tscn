@@ -1,0 +1,172 @@
+[gd_scene load_steps=19 format=3 uid="uid://bulmrmb5ix5o5"]
+
+[ext_resource type="Script" uid="uid://b7c048lyhsngs" path="res://scripts/game/game.gd" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://uf1h0hw1t70n" path="res://scripts/gamemanager/game_manager_main.gd" id="2_78awf"]
+[ext_resource type="PackedScene" uid="uid://c2sriee835w48" path="res://assets/scenes/game/start.tscn" id="2_qbsmt"]
+[ext_resource type="Script" uid="uid://dpv8lk5dkb2cw" path="res://scripts/gamemanager/game_relations.gd" id="3_s0nni"]
+[ext_resource type="Script" uid="uid://cosn8lt6162gs" path="res://scripts/gamemanager/game_spawn_actors.gd" id="4_s0nni"]
+[ext_resource type="Script" uid="uid://r7lugeqw65br" path="res://scripts/gamemanager/game_dialogue.gd" id="5_aug50"]
+[ext_resource type="Script" uid="uid://dnr1wj4m0y2pm" path="res://scripts/gamemanager/game_npc_manager.gd" id="6_kiw3p"]
+[ext_resource type="Script" uid="uid://qorcyrs1swpp" path="res://scripts/gamemanager/game_trade_manager.gd" id="7_2rd6h"]
+[ext_resource type="Script" uid="uid://dsyj2n2kcr2mq" path="res://scripts/gamemanager/game_tasks_manager.gd" id="7_400sg"]
+[ext_resource type="Script" uid="uid://ca2fggnuju4ql" path="res://scripts/gamemanager/game_tasks_list.gd" id="8_g4kob"]
+[ext_resource type="Script" uid="uid://cychrh6tkfrh4" path="res://scripts/gamemanager/game_trade_list.gd" id="8_r7sob"]
+[ext_resource type="Script" uid="uid://0m3qcgs242ru" path="res://scripts/UI/main_ui.gd" id="9_3xj3m"]
+[ext_resource type="Script" uid="uid://dymw3ndd6ne5s" path="res://scripts/gamemanager/game_tasks_logic.gd" id="9_mcffj"]
+[ext_resource type="Script" uid="uid://rcjv0st3b2j0" path="res://scripts/UI/task_inventory.gd" id="11_mcffj"]
+[ext_resource type="Script" uid="uid://bg4jgrjstj31l" path="res://scripts/UI/trade_info.gd" id="14_7ua8r"]
+[ext_resource type="FontFile" uid="uid://c5tvexykhe6fs" path="res://assets/fonts/Ubuntu-Medium.ttf" id="16_y5y3l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y5y3l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3xj3m"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_ibkli")
+
+[node name="game_manager" type="Node" parent="."]
+script = ExtResource("2_78awf")
+
+[node name="relations" type="Node" parent="game_manager"]
+script = ExtResource("3_s0nni")
+
+[node name="timers" type="Node" parent="game_manager/relations"]
+
+[node name="relations_tmr1" type="Timer" parent="game_manager/relations/timers"]
+one_shot = true
+
+[node name="spawn_actors" type="Node" parent="game_manager"]
+script = ExtResource("4_s0nni")
+
+[node name="spawn_tmr" type="Timer" parent="game_manager/spawn_actors"]
+wait_time = 0.5
+
+[node name="dialogue" type="Node" parent="game_manager"]
+script = ExtResource("5_aug50")
+
+[node name="npc_manager" type="Node" parent="game_manager"]
+script = ExtResource("6_kiw3p")
+
+[node name="Timer" type="Timer" parent="game_manager/npc_manager"]
+
+[node name="trade_manager" type="Node" parent="game_manager"]
+script = ExtResource("7_2rd6h")
+
+[node name="trade_list" type="Node" parent="game_manager/trade_manager"]
+script = ExtResource("8_r7sob")
+
+[node name="task_manager" type="Node" parent="game_manager"]
+script = ExtResource("7_400sg")
+
+[node name="tasks_list" type="Node" parent="game_manager/task_manager"]
+script = ExtResource("8_g4kob")
+
+[node name="tasks_logic" type="Node" parent="game_manager/task_manager"]
+script = ExtResource("9_mcffj")
+
+[node name="game_state" type="Node" parent="game_manager"]
+
+[node name="levels" type="Node3D" parent="."]
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("9_3xj3m")
+
+[node name="Start" parent="UI" instance=ExtResource("2_qbsmt")]
+
+[node name="task_inventory" type="CanvasLayer" parent="UI"]
+visible = false
+script = ExtResource("11_mcffj")
+
+[node name="Control" type="Control" parent="UI/task_inventory"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.5
+offset_top = -259.0
+offset_right = 396.5
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tasks_row" type="VBoxContainer" parent="UI/task_inventory/Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 359.0
+offset_bottom = 430.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/task_inventory/Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 184.0
+offset_right = 704.0
+offset_bottom = 277.0
+
+[node name="Map" type="Label" parent="UI/task_inventory/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Map "
+
+[node name="TextureRect2" type="TextureRect" parent="UI/task_inventory/Control"]
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
+z_index = -1
+layout_mode = 0
+offset_left = 385.0
+offset_top = 84.0
+offset_right = 701.0
+offset_bottom = 396.0
+texture = SubResource("CanvasTexture_y5y3l")
+
+[node name="TextureRect" type="TextureRect" parent="UI/task_inventory/Control"]
+self_modulate = Color(0.83, 0.763185, 0.6557, 0.682353)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.5
+offset_top = -244.5
+offset_right = 406.5
+offset_bottom = 244.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_3xj3m")
+expand_mode = 1
+
+[node name="trade_info" type="CanvasLayer" parent="UI"]
+script = ExtResource("14_7ua8r")
+
+[node name="Control" type="Control" parent="UI/trade_info"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -49.0
+offset_right = 213.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/trade_info/Control"]
+layout_mode = 0
+offset_right = 391.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="trade_info" type="Label" parent="UI/trade_info/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.942584, 0.731312, 0.62274, 1)
+theme_override_fonts/font = ExtResource("16_y5y3l")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[connection signal="timeout" from="game_manager/relations/timers/relations_tmr1" to="game_manager/relations" method="_on_relations_tmr_1_timeout"]
+[connection signal="timeout" from="game_manager/spawn_actors/spawn_tmr" to="game_manager/spawn_actors" method="_on_spawn_tmr_timeout"]
+[connection signal="timeout" from="game_manager/npc_manager/Timer" to="game_manager/npc_manager" method="_on_timer_timeout"]

@@ -1,0 +1,50 @@
+if {GlobalsDialogue.joe_task1_dialogue_done} == false:
+	set {GlobalsNpc.dial_no_move} = true
+	if {GlobalsGameManager.joe_task1_given} == false:
+		Joe: Hey I have a job for you.
+		player: Really, what is it ?
+		Joe: You have to clean the camp on the hill, no survivors.
+		player: <Empty Text Event>
+		- hmm ok.
+			set {GlobalsNpc.new_task} = "joe_task1"
+			[signal arg="task_started_ui"]
+			[signal arg="joe_task1_started_logic"]
+			set {GlobalsNpc.dial_no_move} = false
+			set {GlobalsGameManager.joe_task1_given} = true
+			[end_timeline]
+		- Well, no
+			[end_timeline]
+	
+	if {GlobalsGameManager.joe_task1_given} == true and {GlobalsGameManager.joe_task1_executed} == false:
+		Joe: So what about this task ?
+		player: <Empty Text Event>
+		- I'm working on it.
+			set {GlobalsNpc.dial_no_move} = false
+			[end_timeline]
+		- I'm not interested anymore
+			set {GlobalsNpc.new_task} = "joe_task1"
+			[signal arg="task_failed_ui"]
+			set {GlobalsGameManager.joe_task1_failed} = true
+			set {GlobalsNpc.dial_no_move} = false
+			[end_timeline]
+	
+	if {GlobalsGameManager.joe_task1_executed} == true:
+		set {GlobalsNpc.dial_no_move} = true
+		Joe: So did you get what I asked done ?
+		player: Yes I did. It's all settled.
+		Joe: great, here is your reward. Bye.
+		[signal arg="joe_send_reward"]
+		set {GlobalsGameManager.joe_task1_complete} = true
+		set {GlobalsNpc.dial_no_move} = false
+		set {GlobalsDialogue.joe_task1_dialogue_done} = true
+		[end_timeline]
+
+if {GlobalsDialogue.joe_task1_dialogue_done} == true:
+	set {GlobalsNpc.dial_no_move} = true
+	Joe: Hey, you are still around ?
+	player: Yes but I will leave in a moment. You have more stuff for me ?\
+	See you later may be.
+	Joe: No, I have nothing else. See you later I guess.
+	set {GlobalsNpc.dial_no_move} = false
+	[signal arg="special_dial_end"]
+	[end_timeline]

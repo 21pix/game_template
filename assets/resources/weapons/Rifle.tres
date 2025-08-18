@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=3 format=3 uid="uid://bdm47jbfijvyp"]
+
+[ext_resource type="PackedScene" uid="uid://bosmglflgi5e6" path="res://assets/scenes/weapons/RifleFull.tscn" id="1_48pfj"]
+[ext_resource type="Script" uid="uid://ca3ke25rxa8hj" path="res://assets/resources/weapons/weapon_resource.gd" id="3_odlp7"]
+
+[resource]
+script = ExtResource("3_odlp7")
+Weapon_Name = "GRZA"
+Weapon_Type = "Rifle"
+model = ExtResource("1_48pfj")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+muzzle_position = Vector3(0, -0.02, 0.95)
+muzzle_size = 0.2
+muzzle_anim = "shot4"
+cooldown = 0.09
+reload_time = 2.0
+max_distance = 200
+damage = 15.0
+spread = 0.3
+shot_count = 6
+knockback = 20
+recoil = Vector3(0, 0, 0)
+aimRecoil = Vector3(0, 0, 0)
+aimPos = Vector3(0, -0.136, 0)
+snappiness = 0.0
+returnSpeed = 0.0
+sound_shoot = "sounds/Weapons/RifleShot3.mp3"
+sound_reload = "sounds/Weapons/Rifle_reload.mp3"
+Current_Ammo = 20
+Reserve_Ammo = 30
+Magazine = 30
+Max_Ammo = 100
+Auto_Fire = false

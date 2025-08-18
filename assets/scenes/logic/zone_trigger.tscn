@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4ouvsm4dqiuu"]
+
+[ext_resource type="Script" uid="uid://c65ud6046mcvp" path="res://scripts/logic/zone_trigger.gd" id="1_12tsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5l40"]
+size = Vector3(50, 10, 50)
+
+[node name="TriggerArea" type="Node3D"]
+script = ExtResource("1_12tsi")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_d5l40")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

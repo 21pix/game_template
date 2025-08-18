@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://sktyvgkvonhw"]
+
+[ext_resource type="AudioStream" uid="uid://d0l62jam30u3n" path="res://assets/sounds/environement/SmallRocks.mp3" id="1_py6nl"]
+[ext_resource type="AudioStream" uid="uid://dilijn3i181l3" path="res://assets/sounds/environement/stones sliding.mp3" id="2_xkk25"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_vuosl"]
+stream_count = 2
+stream_0 = ExtResource("1_py6nl")
+stream_1 = ExtResource("2_xkk25")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamPlaylist_vuosl")
+volume_db = -8.0
+unit_size = 100.0
+autoplay = true
+max_distance = 400.0

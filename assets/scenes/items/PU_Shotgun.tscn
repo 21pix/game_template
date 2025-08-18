@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://4x6pcmk6yicx"]
+
+[ext_resource type="Script" uid="uid://lnwhx0p58wuk" path="res://scripts/objects/pu_shotgun.gd" id="1_tgmbs"]
+[ext_resource type="ArrayMesh" uid="uid://30ncag73btjj" path="res://assets/scenes/items/shotgun.obj" id="2_kmwbu"]
+[ext_resource type="Texture2D" uid="uid://d1msa5motg5mk" path="res://assets/textures/weapons/wpn_spas12_S_BaseColor.png" id="3_3ui60"]
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2vqh3"]
+size = Vector3(0.2, 0.285, 0.956)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upmqn"]
+albedo_texture = ExtResource("3_3ui60")
+
+[node name="Shotgun" type="Area3D" groups=["pickup_shotgun"]]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_tgmbs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00308228, 0.022644, -0.369873)
+shape = SubResource("BoxShape3D_2vqh3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_kmwbu")
+surface_material_override/0 = SubResource("StandardMaterial3D_upmqn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

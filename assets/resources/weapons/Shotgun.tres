@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=3 format=3 uid="uid://cgo0ye3ehypsi"]
+
+[ext_resource type="Script" uid="uid://bp0e13g6bt44p" path="res://Weapon_Resources/weapon_resource.gd" id="1_ko4vy"]
+[ext_resource type="PackedScene" uid="uid://c3r1lcb3b2oks" path="res://objects/weapons/ShotgunFull.tscn" id="1_rfalq"]
+
+[resource]
+script = ExtResource("1_ko4vy")
+Weapon_Name = "SPS12"
+Weapon_Type = "Shotgun"
+model = ExtResource("1_rfalq")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+muzzle_position = Vector3(0, -0.02, 0.95)
+muzzle_size = 0.2
+muzzle_anim = "shot4"
+cooldown = 0.3
+reload_time = 1.7
+max_distance = 70
+damage = 35.0
+spread = 0.3
+shot_count = 1
+knockback = 30
+recoil = Vector3(0.2, 0, 0)
+aimRecoil = Vector3(0.1, 0, 0)
+aimPos = Vector3(0, -0.085, 0)
+snappiness = 10.0
+returnSpeed = 4.0
+sound_shoot = "sounds/Weapons/ShotGun4.mp3"
+sound_reload = "sounds/GRZ_reload.ogg"
+Current_Ammo = 12
+Reserve_Ammo = 12
+Magazine = 12
+Max_Ammo = 100
+Auto_Fire = false

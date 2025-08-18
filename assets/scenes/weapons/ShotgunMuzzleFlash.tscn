@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://ewmyiriyw33n"]
+
+[ext_resource type="Script" path="res://objects/weapons/shotgun_muzzle_flash.gd" id="1_1wyrg"]
+[ext_resource type="Texture2D" path="res://models/Textures/fx/MuzzleFlash_Shotgun_Alba.dds" id="2_sugyr"]
+
+[sub_resource type="Curve" id="Curve_jhsvr"]
+max_value = 24.0
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_3eg7k"]
+curve = SubResource("Curve_jhsvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p02vn"]
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+emission_curve = SubResource("CurveTexture_3eg7k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0bah"]
+transparency = 1
+albedo_texture = ExtResource("2_sugyr")
+emission_enabled = true
+emission_energy_multiplier = 2.07
+emission_texture = ExtResource("2_sugyr")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4s54f"]
+material = SubResource("StandardMaterial3D_h0bah")
+
+[node name="ShotgunMuzzleFlash" type="Node3D"]
+script = ExtResource("1_1wyrg")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.1
+one_shot = true
+speed_scale = 25.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_p02vn")
+draw_pass_1 = SubResource("QuadMesh_4s54f")
+
+[node name="MuzzleLight" type="SpotLight3D" parent="."]
+visible = false
+light_energy = 0.5
+spot_range = 10.0
+spot_attenuation = 1.43
+spot_angle = 115.78
+
+[node name="LightTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]

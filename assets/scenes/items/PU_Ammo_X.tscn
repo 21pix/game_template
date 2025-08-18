@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://boj6vff06aacs"]
+
+[ext_resource type="Script" uid="uid://b8byh43m3vh8m" path="res://scripts/objects/pu_ammo_X.gd" id="1_30pc1"]
+[ext_resource type="Texture2D" uid="uid://baratgm6fb5s3" path="res://assets/textures/items/ammo_rpg.png" id="2_bb4an"]
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5vsu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jly02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i4py"]
+albedo_color = Color(1, 0.976471, 0.980392, 1)
+albedo_texture = ExtResource("2_bb4an")
+uv1_scale = Vector3(3, 2, 3)
+
+[node name="ammo_X" type="Area3D" groups=["AmmoPickups", "ammo_X"]]
+transform = Transform3D(0.2, 4.53786e-05, 0, -4.53786e-05, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+script = ExtResource("1_30pc1")
+ammo_type = "ammo_X"
+ammo_X = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a5vsu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jly02")
+surface_material_override/0 = SubResource("StandardMaterial3D_2i4py")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

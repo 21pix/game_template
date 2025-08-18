@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjrdo30jmdki8"]
+
+[ext_resource type="PackedScene" uid="uid://bh4nkh8dbsj73" path="res://objects/props/props_barrel.tscn" id="1_yi42n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi42n"]
+size = Vector3(2, 2, 2)
+
+[node name="Cover_barrel_1" type="Area3D" groups=["Cover"]]
+collision_layer = 256
+collision_mask = 16
+
+[node name="props_barrel5" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(0.942525, 0, -0.334136, 0, 1, 0, 0.334136, 0, 0.942525, 0.592736, 4.29153e-06, 0.878326)
+
+[node name="props_barrel9" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(0.72685, 0, 0.686796, 0, 1, 0, -0.686796, 0, 0.72685, -1.66648, 4.29153e-06, -1.07664)
+
+[node name="props_barrel6" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0103626, 4.29153e-06, 0.450912)
+
+[node name="props_barrel10" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(-0.0979406, -0.71792, -0.689202, -0.101007, 0.696126, -0.710779, 0.990053, 0, -0.140694, 1.29946, 0.196846, 0.00896454)
+
+[node name="props_barrel7" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(0.830041, 0, 0.557702, 0, 1, 0, -0.557702, 0, 0.830041, -0.00744963, 4.29153e-06, -0.465073)
+
+[node name="props_barrel8" parent="." instance=ExtResource("1_yi42n")]
+transform = Transform3D(-6.25036e-09, -0.142992, -0.989724, 1, -4.37114e-08, 0, -4.32622e-08, -0.989724, 0.142992, -0.794789, 0.337764, 0.103836)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519471, 0)
+shape = SubResource("BoxShape3D_yi42n")

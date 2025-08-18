@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqxm1dp441pmd"]
+
+[ext_resource type="Script" uid="uid://ftlqort0slhv" path="res://scripts/weapons/NPC_muzzle_flash.gd" id="1_hcinq"]
+[ext_resource type="Texture2D" uid="uid://bqhj3u6wph8ns" path="res://assets/textures/FX/MuzzleFlash_Shotgun_Alba.dds" id="2_y068h"]
+
+
+[sub_resource type="Curve" id="Curve_jhsvr"]
+max_value = 24.0
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ooll"]
+curve = SubResource("Curve_jhsvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p02vn"]
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+emission_curve = SubResource("CurveTexture_3ooll")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jhtj"]
+transparency = 1
+albedo_texture = ExtResource("2_y068h")
+emission_enabled = true
+emission_energy_multiplier = 2.07
+emission_texture = ExtResource("2_y068h")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4s54f"]
+material = SubResource("StandardMaterial3D_4jhtj")
+
+[node name="NPCMuzzleFlash" type="Node3D"]
+script = ExtResource("1_hcinq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.1
+one_shot = true
+speed_scale = 25.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_p02vn")
+draw_pass_1 = SubResource("QuadMesh_4s54f")

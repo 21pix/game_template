@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="character_weapon" load_steps=5 format=3 uid="uid://064by1tcusq6"]
+
+[ext_resource type="PackedScene" uid="uid://dwej523ql4u2f" path="res://assets/scenes/weapons/NPCWeapons/wpn_npc_shotgun.tscn" id="1_4ifxu"]
+[ext_resource type="PackedScene" uid="uid://6ek08psnijlg" path="res://assets/scenes/weapons/NPCWeapons/wpn_muzzle_flash.tscn" id="1_as1o0"]
+[ext_resource type="Script" uid="uid://cx1m4mnrq4isj" path="res://assets/resources/characters_weapons/CharWpn_res.gd" id="2_as1o0"]
+[ext_resource type="AudioStream" uid="uid://b84e3iqrb8u4q" path="res://assets/sounds/weapons/ShotGun4.mp3" id="4_m46js"]
+
+[resource]
+script = ExtResource("2_as1o0")
+wpn_name = "shotgun"
+wpn_ammo = "ammo_shotgun"
+wpn_model = ExtResource("1_4ifxu")
+wpn_sound = ExtResource("4_m46js")
+wpn_position = Vector3(0.065, 0.021, 0)
+wpn_rotation = Vector3(-10.4, -93.1, -89.4)
+max_distance = 100
+damage = 25.0
+spread = 0.1
+shot_count = 6
+shot_time = 1.0
+muz_model = ExtResource("1_as1o0")
+muz_position = Vector3(0.764, -0.106, 0.122)
+muz_rotation = Vector3(-2, -2.9, -10.4)
+metadata/_custom_type_script = "uid://cx1m4mnrq4isj"

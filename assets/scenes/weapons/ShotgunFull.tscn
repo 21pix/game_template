@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3r1lcb3b2oks"]
+
+[ext_resource type="PackedScene" uid="uid://c1u0u774ni07h" path="res://objects/weapons/SPS12.tscn" id="1_sqai1"]
+[ext_resource type="PackedScene" uid="uid://c0fmf1mldpnq3" path="res://objects/weapons/SPS12arms.tscn" id="2_hjdki"]
+[ext_resource type="PackedScene" uid="uid://ewmyiriyw33n" path="res://objects/weapons/ShotgunMuzzleFlash.tscn" id="3_j1jaa"]
+
+[node name="ShotgunFull" type="Node3D"]
+
+[node name="SPS12" parent="." instance=ExtResource("1_sqai1")]
+
+[node name="SPS12arms" parent="." instance=ExtResource("2_hjdki")]
+
+[node name="ShotgunMuzzleFlash" parent="." instance=ExtResource("3_j1jaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0484117, -1.10225)

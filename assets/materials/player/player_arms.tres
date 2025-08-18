@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://croob36ia18v4"]
+
+[ext_resource type="Texture2D" uid="uid://b521glgr5yhfv" path="res://assets/textures/player/PlayerArms_Alb.png" id="1_toxb7"]
+[ext_resource type="Texture2D" uid="uid://cn6pd3f843mtl" path="res://assets/textures/player/PlayerArms_Mr.png" id="2_low4n"]
+[ext_resource type="Texture2D" uid="uid://ctjmjo376od4c" path="res://assets/textures/player/PlayerArms_Nm.png" id="3_7sy8g"]
+
+[resource]
+albedo_texture = ExtResource("1_toxb7")
+metallic = 1.0
+metallic_texture = ExtResource("2_low4n")
+roughness_texture = ExtResource("2_low4n")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_7sy8g")

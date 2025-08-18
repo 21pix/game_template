@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dbv3sy5qjatnl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdaww"]
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nr3w"]
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poavv"]
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26088"]
+region = Rect2(256, 0, 256, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdaww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nr3w")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poavv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26088")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"shot4",
+"speed": 30.0
+}]

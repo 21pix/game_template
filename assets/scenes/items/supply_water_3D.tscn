@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3edxxnq6y5j6"]
+
+[ext_resource type="Script" uid="uid://dfk2824hu1gcp" path="res://scripts/objects/supply_water.gd" id="1_tngos"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xjmd"]
+size = Vector3(0.1, 0.02, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dam8c"]
+albedo_color = Color(0.2, 0.6, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oy57l"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SupplyWater" type="Area3D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_tngos")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0xjmd")
+surface_material_override/0 = SubResource("StandardMaterial3D_dam8c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oy57l")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

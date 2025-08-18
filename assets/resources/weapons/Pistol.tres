@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=3 format=3 uid="uid://caqv7hvvrsgs4"]
+
+[ext_resource type="Script" uid="uid://bp0e13g6bt44p" path="res://Weapon_Resources/weapon_resource.gd" id="1_ixog4"]
+[ext_resource type="PackedScene" uid="uid://c0vycfx86vcyv" path="res://objects/weapons/PistoFull.tscn" id="1_kpkrd"]
+
+[resource]
+script = ExtResource("1_ixog4")
+Weapon_Name = "PistolB"
+Weapon_Type = "Pistol"
+model = ExtResource("1_kpkrd")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+muzzle_position = Vector3(0, -0.02, 0.95)
+muzzle_size = 0.2
+muzzle_anim = "shot4"
+cooldown = 0.2
+reload_time = 2.0
+max_distance = 50
+damage = 15.0
+spread = 0.3
+shot_count = 1
+knockback = 3
+recoil = Vector3(0, 0, 0)
+aimRecoil = Vector3(0, 0, 0)
+aimPos = Vector3(0, -0.02, 0.2)
+snappiness = 0.0
+returnSpeed = 0.0
+sound_shoot = "sounds/pistol.mp3"
+sound_reload = "sounds/GRZ_reload.ogg"
+Current_Ammo = 6
+Reserve_Ammo = 12
+Magazine = 6
+Max_Ammo = 200
+Auto_Fire = false

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd4g2evodrk7d"]
+
+[ext_resource type="Script" uid="uid://dt45ayup5at8a" path="res://scripts/UI/task_inventory.gd" id="1_s8ns1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s8ns1"]
+
+[node name="TaskList" type="Node2D"]
+script = ExtResource("1_s8ns1")
+metadata/_edit_vertical_guides_ = [520.0, 125.0, 916.0, 337.0]
+metadata/_edit_horizontal_guides_ = [72.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.8, 0.735467, 0.624, 0.745098)
+show_behind_parent = true
+offset_left = 116.0
+offset_top = 62.0
+offset_right = 929.0
+offset_bottom = 551.0
+texture = SubResource("CanvasTexture_s8ns1")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 124.0
+offset_top = 72.0
+offset_right = 917.0
+offset_bottom = 590.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 430.0
+
+[node name="task_title" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 238.0
+offset_right = 363.0
+offset_bottom = 430.0
+
+[node name="task_status" type="Label" parent="CanvasLayer/Control/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_right = 733.0
+offset_bottom = 453.0
+
+[node name="task_descr" type="Label" parent="CanvasLayer/Control/VBoxContainer2"]
+layout_mode = 2

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Character_Equip" load_steps=7 format=3 uid="uid://c4xs64fm5488t"]
+
+[ext_resource type="Script" uid="uid://xjt86gvsc7h3" path="res://assets/resources/characters_equip/CharEquip.gd" id="1_63mcu"]
+[ext_resource type="Resource" uid="uid://cofnjm6cfqbpq" path="res://assets/resources/characters_weapons/CharWpn_rifle.tres" id="1_gsftj"]
+[ext_resource type="Resource" uid="uid://dev06ytp7vntu" path="res://assets/resources/characters_weapons/CharWpn_rifle2.tres" id="2_esqa5"]
+[ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_uiccs"]
+[ext_resource type="Resource" uid="uid://ojx4v63uqcrh" path="res://gamedata/gameplay/dialogues/mouse_fetch_task.dtl" id="4_esqa5"]
+[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="5_58utx"]
+
+[resource]
+script = ExtResource("1_63mcu")
+skin_folder = "res://CharResources/Faction1"
+Name = "mouse"
+Faction = "rats"
+type = "unique"
+Weapon1 = ExtResource("1_gsftj")
+Weapon2 = ExtResource("2_esqa5")
+Weapon3 = ExtResource("3_uiccs")
+reacts_to = "enemy_to_F1"
+supplies = ExtResource("5_58utx")
+char_dialogs_special = Array[Resource]([ExtResource("4_esqa5")])
+enemy_suffix = "_to_f1"
+metadata/_custom_type_script = "uid://5yb75jlj1n2f"

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cf4erj6yp6x3v"]
+
+[node name="A2_guard1" type="Marker3D"]
+transform = Transform3D(0.863985, 0, 0.503518, 0, 1, 0, -0.503518, 0, 0.863985, 0, 0, 0)
+gizmo_extents = 2.0

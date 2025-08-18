@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="supply_item" load_steps=2 format=3 uid="uid://bj323to8rkcyn"]
+
+[ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="1_efalt"]
+
+[resource]
+script = ExtResource("1_efalt")
+item_name = "medkit"
+item_desc = "emergency medical kit"
+metadata/_custom_type_script = "uid://chk3ndfgibnhy"

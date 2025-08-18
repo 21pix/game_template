@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://confnrw04s6lj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ss7pq"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SitSpot" type="Area3D" groups=["camp_sit"]]
+collision_layer = 512
+collision_mask = 128
+
+[node name="Marker3D" type="Marker3D" parent="."]
+gizmo_extents = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ss7pq")

@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=21 format=3 uid="uid://djco3esl4uklc"]
+
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_ogmuo"]
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_y04fx"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_5114f"]
+[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="4_s800l"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_iu8b2"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="6_4xl0g"]
+[ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="7_2oqvc"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="8_1arum"]
+[ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="9_3hd81"]
+[ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="10_h4gws"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="11_t1l63"]
+
+[sub_resource type="Resource" id="Resource_qussu"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("1_ogmuo")
+overrides = {
+"global_bg_color": "Color(0.839216, 0.746262, 0.54902, 0.529412)",
+"global_font": "\"res://fonts/Ubuntu-Regular.ttf\"",
+"global_font_color": "Color(0.164063, 0.109589, 0.109589, 1)"
+}
+
+[sub_resource type="Resource" id="Resource_n7o42"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("3_5114f")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_o3o0j"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("4_s800l")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_geeyk"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("5_iu8b2")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_x4ie1"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("6_4xl0g")
+overrides = {
+"autoadvance_progressbar": "false",
+"box_margin_bottom": "25.0",
+"next_indicator_enabled": "false",
+"next_indicator_show_on_questions": "false"
+}
+
+[sub_resource type="Resource" id="Resource_7j77c"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("7_2oqvc")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_h88el"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("8_1arum")
+overrides = {
+"font_custom": "\"res://gameplay/dialogues/Playerstyle.tres\""
+}
+
+[sub_resource type="Resource" id="Resource_mt2aa"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("9_3hd81")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_81vwg"]
+script = ExtResource("2_y04fx")
+scene = ExtResource("10_h4gws")
+overrides = {}
+
+[resource]
+script = ExtResource("11_t1l63")
+name = "Playerstyle"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_qussu"),
+"10": SubResource("Resource_n7o42"),
+"11": SubResource("Resource_o3o0j"),
+"12": SubResource("Resource_geeyk"),
+"13": SubResource("Resource_x4ie1"),
+"14": SubResource("Resource_7j77c"),
+"15": SubResource("Resource_h88el"),
+"16": SubResource("Resource_mt2aa"),
+"17": SubResource("Resource_81vwg")
+}
+base_overrides = {}
+layers = Array[ExtResource("2_y04fx")]([])
+metadata/_latest_layer = "13"

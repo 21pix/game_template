@@ -1,0 +1,6 @@
+set {GlobalsNpc.dial_no_move} = true
+default_npc: Hello
+player: Hello, how is it going ?
+default_npc: Ah, same old. Bye.
+set {GlobalsNpc.intro_done} = true
+set {GlobalsNpc.dial_no_move} = false

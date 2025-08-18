@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Character_Equip" load_steps=6 format=3 uid="uid://c250rrohkqd3l"]
+
+[ext_resource type="Resource" uid="uid://cofnjm6cfqbpq" path="res://assets/resources/characters_weapons/CharWpn_rifle.tres" id="1_gta8u"]
+[ext_resource type="Resource" uid="uid://dev06ytp7vntu" path="res://assets/resources/characters_weapons/CharWpn_rifle2.tres" id="2_u4v17"]
+[ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_dv1yy"]
+[ext_resource type="Script" uid="uid://xjt86gvsc7h3" path="res://assets/resources/characters_equip/CharEquip.gd" id="4_tc4ch"]
+[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="5_u4v17"]
+
+[resource]
+script = ExtResource("4_tc4ch")
+skin_folder = "res://assets/textures/characters_resources/skins/faction2"
+Name = "fox"
+Faction = "foxes"
+type = "generic"
+Weapon1 = ExtResource("2_u4v17")
+Weapon2 = ExtResource("1_gta8u")
+Weapon3 = ExtResource("3_dv1yy")
+reacts_to = "enemy_to_F2"
+supplies = ExtResource("5_u4v17")
+char_dialogs_special = Array[Resource]([])
+enemy_suffix = "_to_f2"

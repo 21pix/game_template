@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bycg5c347i18l"]
+
+[ext_resource type="Texture2D" uid="uid://b3kyjhvskb8g3" path="res://assets/textures/FX/BloodPart.png" id="2_0bx45"]
+[ext_resource type="Script" uid="uid://b4dbnwuedfdc5" path="res://scripts/fx/impact.gd" id="3_rwfxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18rll"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wdjy"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdr3e"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvlnq"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtbub"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwml8"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uwgv"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2equv"]
+atlas = ExtResource("2_0bx45")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwydm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18rll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wdjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdr3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvlnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtbub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwml8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uwgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2equv")
+}],
+"loop": false,
+"name": &"blood",
+"speed": 30.0
+}]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+cast_shadow = 0
+pixel_size = 0.0025
+double_sided = false
+no_depth_test = true
+sprite_frames = SubResource("SpriteFrames_nwydm")
+animation = &"blood"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("3_rwfxr")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
