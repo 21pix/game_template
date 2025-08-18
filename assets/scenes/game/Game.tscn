@@ -170,3 +170,6 @@ horizontal_alignment = 1
 [connection signal="timeout" from="game_manager/relations/timers/relations_tmr1" to="game_manager/relations" method="_on_relations_tmr_1_timeout"]
 [connection signal="timeout" from="game_manager/spawn_actors/spawn_tmr" to="game_manager/spawn_actors" method="_on_spawn_tmr_timeout"]
 [connection signal="timeout" from="game_manager/npc_manager/Timer" to="game_manager/npc_manager" method="_on_timer_timeout"]
+[connection signal="trade_lost" from="game_manager/trade_manager" to="UI/trade_info" method="_on_trade_manager_trade_lost"]
+[connection signal="trade_received" from="game_manager/trade_manager" to="UI/trade_info" method="_on_trade_manager_trade_received"]
+[connection signal="task_executed" from="game_manager/task_manager/tasks_logic" to="game_manager/task_manager/tasks_logic" method="_on_task_executed"]
