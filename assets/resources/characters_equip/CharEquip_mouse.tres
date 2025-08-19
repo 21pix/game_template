@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dev06ytp7vntu" path="res://assets/resources/characters_weapons/CharWpn_rifle2.tres" id="2_esqa5"]
 [ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_uiccs"]
 [ext_resource type="Resource" uid="uid://ojx4v63uqcrh" path="res://gamedata/gameplay/dialogues/mouse_fetch_task.dtl" id="4_esqa5"]
-[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="5_58utx"]
+[ext_resource type="Resource" uid="uid://fs7pbfyyaw6q" path="res://assets/resources/items/npc_supplies.tres" id="5_58utx"]
 
 [resource]
 script = ExtResource("1_63mcu")
@@ -20,4 +20,3 @@ reacts_to = "enemy_to_F1"
 supplies = ExtResource("5_58utx")
 char_dialogs_special = Array[Resource]([ExtResource("4_esqa5")])
 enemy_suffix = "_to_f1"
-metadata/_custom_type_script = "uid://5yb75jlj1n2f"

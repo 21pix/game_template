@@ -10,4 +10,3 @@ item_name = "meat"
 item_desc = "piece of dried meat"
 visual3D = ExtResource("3_y0tia")
 visual2D = ExtResource("2_i4hv5")
-metadata/_custom_type_script = "uid://chk3ndfgibnhy"

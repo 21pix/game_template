@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://dev06ytp7vntu" path="res://assets/resources/characters_weapons/CharWpn_rifle2.tres" id="2_u4v17"]
 [ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_dv1yy"]
 [ext_resource type="Script" uid="uid://xjt86gvsc7h3" path="res://assets/resources/characters_equip/CharEquip.gd" id="4_tc4ch"]
-[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="5_u4v17"]
+[ext_resource type="Resource" uid="uid://fs7pbfyyaw6q" path="res://assets/resources/items/npc_supplies.tres" id="5_u4v17"]
 
 [resource]
 script = ExtResource("4_tc4ch")

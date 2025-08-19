@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cofnjm6cfqbpq" path="res://assets/resources/characters_weapons/CharWpn_rifle.tres" id="2_pfg7j"]
 [ext_resource type="Resource" uid="uid://064by1tcusq6" path="res://assets/resources/characters_weapons/CharWpn_shotgun.tres" id="3_ki5od"]
 [ext_resource type="Resource" uid="uid://cd8f7j0vb3s7a" path="res://gamedata/gameplay/dialogues/joe_task1_1.dtl" id="4_ki5od"]
-[ext_resource type="Resource" uid="uid://bomnj6dgdwihu" path="res://assets/resources/items/npc_supplies.tres" id="6_aqbi7"]
+[ext_resource type="Resource" uid="uid://fs7pbfyyaw6q" path="res://assets/resources/items/npc_supplies.tres" id="6_aqbi7"]
 
 [resource]
 script = ExtResource("1_4t5m4")
@@ -20,4 +20,3 @@ reacts_to = "enemy_to_F1"
 supplies = ExtResource("6_aqbi7")
 char_dialogs_special = Array[Resource]([ExtResource("4_ki5od")])
 enemy_suffix = "_to_f1"
-metadata/_custom_type_script = "uid://5yb75jlj1n2f"
