@@ -9,6 +9,7 @@
 script = ExtResource("3_odlp7")
 Weapon_Name = "GRZA"
 Weapon_Type = "Rifle"
+inv_name = "rifle"
 model = ExtResource("1_48pfj")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)

@@ -6,4 +6,4 @@
 script = ExtResource("1_efalt")
 item_name = "medkit"
 item_desc = "emergency medical kit"
-metadata/_custom_type_script = "uid://chk3ndfgibnhy"
+inv_name = "medkit"

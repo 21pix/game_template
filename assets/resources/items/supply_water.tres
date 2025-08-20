@@ -6,4 +6,4 @@
 script = ExtResource("1_0dut8")
 item_name = "water"
 item_desc = "small bottle of filtered water"
-metadata/_custom_type_script = "uid://chk3ndfgibnhy"
+inv_name = "water"

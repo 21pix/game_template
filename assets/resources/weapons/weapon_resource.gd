@@ -4,6 +4,7 @@ class_name WeaponClass
 
 @export var Weapon_Name : String
 @export var Weapon_Type : String
+@export var inv_name: String
 @export_subgroup("Model")
 @export var model: PackedScene  # Model of the weapon
 @export var position: Vector3  # On-screen position

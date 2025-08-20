@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="supply_item" load_steps=4 format=3 uid="uid://dwh4v0a0mdkqn"]
 
+[ext_resource type="Texture2D" uid="uid://c1qswabemurlb" path="res://assets/textures/items/item_meat_icon.png" id="1_e476m"]
 [ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="1_oihcl"]
-[ext_resource type="PackedScene" uid="uid://d188fgbfw5im2" path="res://assets/scenes/UI/item_meat_icon.tscn" id="2_i4hv5"]
 [ext_resource type="PackedScene" uid="uid://dt725kncsqi85" path="res://assets/scenes/items/supply_meat_3D.tscn" id="3_y0tia"]
 
 [resource]
 script = ExtResource("1_oihcl")
 item_name = "meat"
 item_desc = "piece of dried meat"
+inv_name = "meat"
+inv_icon = ExtResource("1_e476m")
 visual3D = ExtResource("3_y0tia")
-visual2D = ExtResource("2_i4hv5")

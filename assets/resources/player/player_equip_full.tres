@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_s14uq")
-player_equip_full = []
+player_stuff = []
 metadata/_custom_type_script = "uid://cf2lp2bhfcbay"

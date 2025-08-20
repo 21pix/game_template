@@ -23,7 +23,7 @@ func _on_area_exited(area: Area3D) -> void:
 func interact(Node):
 	if is_instance_valid(purplekey):
 		if item_selected:
-			globals.found_purplekey.emit()
+			Globals.found_purplekey.emit()
 			Audio.play("sounds/Pickups/collect.ogg")
 			purplekey.queue_free()	
 	else:

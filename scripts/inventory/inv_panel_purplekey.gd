@@ -6,7 +6,7 @@ extends Node
 
 
 func _ready() -> void:
-	globals.used_purplekey.connect(delete_item)
+	Globals.used_purplekey.connect(delete_item)
 	
 func delete_item():
 	inv_panel.queue_free()

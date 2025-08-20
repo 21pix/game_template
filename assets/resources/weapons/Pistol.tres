@@ -9,6 +9,7 @@
 script = ExtResource("1_gvwyl")
 Weapon_Name = "pistol"
 Weapon_Type = "Pistol"
+inv_name = "pistol"
 model = ExtResource("1_6mt2v")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)

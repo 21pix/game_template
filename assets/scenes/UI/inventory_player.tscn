@@ -31,3 +31,18 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/ItemList/Button"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 55.0
+
+[node name="amount" type="Label" parent="CanvasLayer/ItemList/Button"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 66.0
+offset_bottom = 60.0
+text = "10"
