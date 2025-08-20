@@ -4,7 +4,6 @@ extends Node2D
 @onready var levels: Node3D = $"../../levels"
 @onready var level_instance: Node3D
 @onready var start: Node2D = $"."
-@onready var level_test = preload("res://assets/scenes/levels/elevation/elevation_map.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +16,7 @@ func unload_level():
 		
 func load_level(level_name : String):
 	unload_level()
-	var level_path := "res://scenes/%s.tscn" % level_name
+	var level_path := "res://assets/scenes/levels/test_inv/%s.tscn" % level_name
 	var level_resource := load(level_path)
 	if level_resource:
 		level_instance = level_resource.instantiate()
@@ -25,7 +24,7 @@ func load_level(level_name : String):
 		
 func _on_button_pressed() -> void:
 #	get_tree().change_scene_to_file("res://scenes/elevation_map.tscn")
-	load_level("elevation_map")
+	load_level("test_inv_lvl")
 	self.queue_free()
 
 func _on_button_2_pressed() -> void:

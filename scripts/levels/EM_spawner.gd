@@ -8,7 +8,7 @@ class_name LevelSpawner
 @onready var a1_spawn_3: Marker3D = $"../Area1/Camps/A1_spawn3"
 @onready var a1_spawn_4: Marker3D = $"../Area1/Camps/A1_spawn4"
 @onready var a1_spawn_5: Marker3D = $"../Area1/Camps/A1_spawn5"
-@onready var a1_player_spawn: Marker3D = $"../Area1/Camps/A1_player_spawn"
+@onready var player_spawn: Marker3D = $"../Area1/Camps/A1_player_spawn"
 @onready var a2_spawn_1: Marker3D = $"../Area1/Camps/A2_spawn1"
 @onready var level_spawn_list: Array = [building_spawn_1, a1_spawn_1, a1_spawn_2, a1_spawn_3, a2_spawn_1]
 

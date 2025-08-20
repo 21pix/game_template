@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=4 uid="uid://c1u0u774ni07h"]
 
-[ext_resource type="Texture2D" uid="uid://c1sdbli8rrerh" path="res://models/SPS12_Bitmaptexture-Bitmaptexture.png" id="2_0fyw0"]
-[ext_resource type="Script" path="res://scripts/weaponAnim.gd" id="2_jncpq"]
-[ext_resource type="Animation" uid="uid://k1bmnc7qumct" path="res://animations/SPS12/reload.res" id="3_7sx1o"]
-[ext_resource type="Texture2D" uid="uid://x2jy1s60w87b" path="res://models/Textures/Weapons/wpn_spas12_S_BaseColor.png" id="3_45n4a"]
-[ext_resource type="Texture2D" uid="uid://b3kmva52qdm6y" path="res://models/Textures/Weapons/wpn_spas12_S_Metallic.png" id="4_awxs0"]
-[ext_resource type="Texture2D" uid="uid://cdxcuywx21flf" path="res://models/Textures/Weapons/wpn_spas12_S_Normal.png" id="5_wl7gg"]
-[ext_resource type="Texture2D" uid="uid://d1lc4vu74plx4" path="res://models/Textures/Weapons/wpn_spas12_S_Roughness.png" id="6_wxyrr"]
+[ext_resource type="Texture2D" uid="uid://c2ceqym3og23j" path="res://assets/textures/helpers/128x128_grey.png" id="2_0fyw0"]
+[ext_resource type="Script" uid="uid://d1fwrjm3wuw4s" path="res://scripts/weapons/weaponAnim.gd" id="2_jncpq"]
+[ext_resource type="Animation" uid="uid://k1bmnc7qumct" path="res://assets/animations/weapons/SPS12/reload.res" id="3_7sx1o"]
+[ext_resource type="Texture2D" uid="uid://c2ceqym3og23j" path="res://assets/textures/helpers/128x128_grey.png" id="3_45n4a"]
+[ext_resource type="Texture2D" uid="uid://c2ceqym3og23j" path="res://assets/textures/helpers/128x128_grey.png" id="4_awxs0"]
+[ext_resource type="Texture2D" uid="uid://c2ceqym3og23j" path="res://assets/textures/helpers/128x128_grey.png" id="5_wl7gg"]
+[ext_resource type="Texture2D" uid="uid://c2ceqym3og23j" path="res://assets/textures/helpers/128x128_grey.png" id="6_wxyrr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yevu"]
 resource_name = "wpn_spas12_S"

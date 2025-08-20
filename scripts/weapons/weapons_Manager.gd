@@ -44,10 +44,10 @@ var WeaponList : Array
 
 #@export var ArmsSet: Array[Arms] = []
 
-@onready var pistol =load("res://Weapon_Resources/Pistol.tres")
-@onready var shotgun =load("res://Weapon_Resources/Shotgun.tres")
-@onready var rifle =load("res://Weapon_Resources/Rifle.tres")
-@onready var pistolB =load("res://Weapon_Resources/Pistol.tres")
+@onready var pistol =preload("res://assets/resources/weapons/Pistol.tres")
+@onready var shotgun =preload("res://assets/resources/weapons/Shotgun.tres")
+@onready var rifle =preload("res://assets/resources/weapons/Rifle.tres")
+@onready var pistolB =preload("res://assets/resources/weapons/Pistol.tres")
 #@onready var shotgunB =load("res://weapons/shotgunB.tres")
 #@onready var rifleB =load("res://weapons/rifleB.tres")
 	

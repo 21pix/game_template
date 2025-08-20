@@ -30,7 +30,7 @@ func get_spawn_data():
 	
 #---------------------- PLAYER SPAWN ------------------------------------------	
 func spawn_player():
-	var player_spawn_point = spawner.a1_player_spawn
+	var player_spawn_point = spawner.player_spawn
 	var player_squad = GlobalsNpc.player_squad.instantiate()
 	squads.add_child(player_squad)
 	player_squad.position = player_spawn_point.position

@@ -52,6 +52,7 @@ size = Vector3(0.2, 0.1, 0.3)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_t3ex5")
+sound = "assets/sounds/objects/collect.ogg"
 
 [node name="health_item" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.74846e-08, -0.4, 1.74846e-08, 0, -1.74846e-08, -0.4, 0.4, -1.74846e-08, 7.64274e-16, 0, 0.0228993, 8.75188e-07)

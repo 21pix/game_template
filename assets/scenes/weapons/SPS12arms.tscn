@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://c0fmf1mldpnq3"]
 
-[ext_resource type="Script" path="res://scripts/armsAnim.gd" id="2_evm6d"]
-[ext_resource type="Animation" uid="uid://bdxxbxr6sa4xq" path="res://animations/SPS12/arms/reload.res" id="2_iglox"]
-[ext_resource type="Material" uid="uid://croob36ia18v4" path="res://models/Materials/GRZarms_Mat.tres" id="3_1glqu"]
+[ext_resource type="Script" uid="uid://d1fwrjm3wuw4s" path="res://scripts/weapons/weaponAnim.gd" id="2_evm6d"]
+[ext_resource type="Animation" uid="uid://bdxxbxr6sa4xq" path="res://assets/animations/weapons/SPS12/arms/reload.res" id="2_iglox"]
+[ext_resource type="Material" uid="uid://croob36ia18v4" path="res://assets/materials/player/player_arms.tres" id="3_1glqu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74qvq"]
 resource_name = "act_arm_1_S"

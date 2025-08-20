@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ewmyiriyw33n"]
 
-[ext_resource type="Script" path="res://objects/weapons/shotgun_muzzle_flash.gd" id="1_1wyrg"]
-[ext_resource type="Texture2D" path="res://models/Textures/fx/MuzzleFlash_Shotgun_Alba.dds" id="2_sugyr"]
+[ext_resource type="Script" uid="uid://c7d041chelalh" path="res://scripts/weapons/shotgun_muzzle_flash.gd" id="1_1wyrg"]
+[ext_resource type="Texture2D" uid="uid://bqhj3u6wph8ns" path="res://assets/textures/FX/MuzzleFlash_Shotgun_Alba.dds" id="2_sugyr"]
 
 [sub_resource type="Curve" id="Curve_jhsvr"]
 max_value = 24.0

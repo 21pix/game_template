@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponClass" load_steps=3 format=3 uid="uid://bdm47jbfijvyp"]
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=5 format=3 uid="uid://bdm47jbfijvyp"]
 
 [ext_resource type="PackedScene" uid="uid://bosmglflgi5e6" path="res://assets/scenes/weapons/RifleFull.tscn" id="1_48pfj"]
+[ext_resource type="AudioStream" uid="uid://nwncynq41j7q" path="res://assets/sounds/weapons/RifleShot3.mp3" id="3_3u7qr"]
+[ext_resource type="AudioStream" uid="uid://dlud82xo8x8yp" path="res://assets/sounds/weapons/Rifle_reload.mp3" id="3_af0ye"]
 [ext_resource type="Script" uid="uid://ca3ke25rxa8hj" path="res://assets/resources/weapons/weapon_resource.gd" id="3_odlp7"]
 
 [resource]
@@ -25,8 +27,8 @@ aimRecoil = Vector3(0, 0, 0)
 aimPos = Vector3(0, -0.136, 0)
 snappiness = 0.0
 returnSpeed = 0.0
-sound_shoot = "sounds/Weapons/RifleShot3.mp3"
-sound_reload = "sounds/Weapons/Rifle_reload.mp3"
+sound_shoot = ExtResource("3_3u7qr")
+sound_reload = ExtResource("3_af0ye")
 Current_Ammo = 20
 Reserve_Ammo = 30
 Magazine = 30

@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://chs0cu1aeb54r"]
 
-[ext_resource type="Script" uid="uid://b2bk6nrhsv2in" path="res://scripts/levels/elevation_map.gd" id="1_624fa"]
+[ext_resource type="Script" uid="uid://b2bk6nrhsv2in" path="res://scripts/levels/map_loaded.gd" id="1_624fa"]
 [ext_resource type="PackedScene" uid="uid://c4njlfc8xgsip" path="res://assets/scenes/levels/elevation/tai_1_cover_1.tscn" id="1_ksdwt"]
 [ext_resource type="PackedScene" uid="uid://buep1uktlpahk" path="res://assets/scenes/levels/elevation/elevation_map_ground.tscn" id="2_hdqv6"]
 [ext_resource type="PackedScene" uid="uid://behjofuekkkgs" path="res://assets/scenes/levels/elevation/tai_1_cover_3.tscn" id="2_j6j0n"]

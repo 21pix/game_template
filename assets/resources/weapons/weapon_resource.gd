@@ -28,8 +28,8 @@ class_name WeaponClass
 @export var returnSpeed : float
 
 @export_subgroup("Sounds")
-@export var sound_shoot: String  # Sound path
-@export var sound_reload: String
+@export var sound_shoot: AudioStreamMP3  # Sound path
+@export var sound_reload: AudioStreamMP3
 
 @export_subgroup("Ammunition")
 @export var Current_Ammo : int

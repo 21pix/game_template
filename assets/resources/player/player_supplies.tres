@@ -1,3 +1,11 @@
-[gd_resource type="Resource" format=3 uid="uid://b7crtqes4db0w"]
+[gd_resource type="Resource" script_class="PlayerSuppliesList" load_steps=5 format=3 uid="uid://bf5l3k4c87ui0"]
+
+[ext_resource type="Script" uid="uid://cdndqpn5qn3xk" path="res://assets/resources/player/player_supplies.gd" id="1_623tj"]
+[ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="2_gb24j"]
+[ext_resource type="Resource" uid="uid://dwh4v0a0mdkqn" path="res://assets/resources/items/supply_meat.tres" id="3_7cpnw"]
+[ext_resource type="Resource" uid="uid://7ulbpixxlo2" path="res://assets/resources/items/supply_water.tres" id="5_nlha1"]
 
 [resource]
+script = ExtResource("1_623tj")
+supplies = Array[ExtResource("2_gb24j")]([ExtResource("3_7cpnw"), ExtResource("5_nlha1")])
+metadata/_custom_type_script = "uid://cdndqpn5qn3xk"

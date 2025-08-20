@@ -1,34 +1,37 @@
-[gd_resource type="Resource" script_class="WeaponClass" load_steps=3 format=3 uid="uid://cgo0ye3ehypsi"]
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=5 format=3 uid="uid://7ekdak42tfje"]
 
-[ext_resource type="Script" uid="uid://bp0e13g6bt44p" path="res://Weapon_Resources/weapon_resource.gd" id="1_ko4vy"]
-[ext_resource type="PackedScene" uid="uid://c3r1lcb3b2oks" path="res://objects/weapons/ShotgunFull.tscn" id="1_rfalq"]
+[ext_resource type="Script" uid="uid://ca3ke25rxa8hj" path="res://assets/resources/weapons/weapon_resource.gd" id="1_fm2w1"]
+[ext_resource type="PackedScene" uid="uid://c3r1lcb3b2oks" path="res://assets/scenes/weapons/ShotgunFull.tscn" id="1_rfalq"]
+[ext_resource type="AudioStream" uid="uid://dlud82xo8x8yp" path="res://assets/sounds/weapons/Rifle_reload.mp3" id="3_krh0f"]
+[ext_resource type="AudioStream" uid="uid://fu23w8haa5wc" path="res://assets/sounds/weapons/Gun01_shot.mp3" id="4_vpdwv"]
 
 [resource]
-script = ExtResource("1_ko4vy")
-Weapon_Name = "SPS12"
+script = ExtResource("1_fm2w1")
+Weapon_Name = "Shotgun"
 Weapon_Type = "Shotgun"
 model = ExtResource("1_rfalq")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)
 muzzle_position = Vector3(0, -0.02, 0.95)
 muzzle_size = 0.2
-muzzle_anim = "shot4"
-cooldown = 0.3
-reload_time = 1.7
-max_distance = 70
-damage = 35.0
-spread = 0.3
+muzzle_anim = ""
+cooldown = 0.1
+reload_time = 1.0
+max_distance = 100
+damage = 25.0
+spread = 0.1
 shot_count = 1
-knockback = 30
-recoil = Vector3(0.2, 0, 0)
-aimRecoil = Vector3(0.1, 0, 0)
+knockback = 20
+recoil = Vector3(0, 0, 0)
+aimRecoil = Vector3(0, 0, 0)
 aimPos = Vector3(0, -0.085, 0)
-snappiness = 10.0
-returnSpeed = 4.0
-sound_shoot = "sounds/Weapons/ShotGun4.mp3"
-sound_reload = "sounds/GRZ_reload.ogg"
-Current_Ammo = 12
-Reserve_Ammo = 12
-Magazine = 12
-Max_Ammo = 100
+snappiness = 0.0
+returnSpeed = 0.0
+sound_shoot = ExtResource("4_vpdwv")
+sound_reload = ExtResource("3_krh0f")
+Current_Ammo = 0
+Reserve_Ammo = 0
+Magazine = 0
+Max_Ammo = 0
 Auto_Fire = false
+metadata/_custom_type_script = "uid://ca3ke25rxa8hj"

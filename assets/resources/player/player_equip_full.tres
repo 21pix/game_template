@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerInventoryEquipment" load_steps=2 format=3 uid="uid://4iwxhq6sga46"]
+
+[ext_resource type="Script" uid="uid://cf2lp2bhfcbay" path="res://assets/resources/player/player_equip_inventory.gd" id="1_s14uq"]
+
+[resource]
+script = ExtResource("1_s14uq")
+player_equip_full = []
+metadata/_custom_type_script = "uid://cf2lp2bhfcbay"
