@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt725kncsqi85"]
+[gd_scene load_steps=5 format=3 uid="uid://dt725kncsqi85"]
+
+[ext_resource type="Script" uid="uid://bcj65kflllbdm" path="res://scripts/objects/prop_supply.gd" id="1_2f7hd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jt5it"]
 size = Vector3(0.1, 0.02, 0.1)
@@ -6,8 +8,22 @@ size = Vector3(0.1, 0.02, 0.1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bs54"]
 albedo_color = Color(0.6, 0.3, 0.445, 1)
 
-[node name="SupplyMeat" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_75qw1"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="SupplyMeat" type="Area3D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_2f7hd")
+sound = "assets/sounds/objects/collect.ogg"
+prop_name = "meat"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_jt5it")
 surface_material_override/0 = SubResource("StandardMaterial3D_4bs54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_75qw1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

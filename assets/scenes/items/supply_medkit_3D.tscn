@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://chwpol174bwe2"]
 
 [ext_resource type="Texture2D" uid="uid://draagusp01h2v" path="res://assets/textures/items/item_health_BaseColor.png" id="1_ns2ho"]
-[ext_resource type="Script" uid="uid://mes8wb6t5fav" path="res://scripts/objects/supply_medkit.gd" id="1_t3ex5"]
+[ext_resource type="Script" uid="uid://bcj65kflllbdm" path="res://scripts/objects/prop_supply.gd" id="1_uuedp"]
 [ext_resource type="Texture2D" uid="uid://7elrmw7rwq5b" path="res://assets/textures/items/item_health_Normal.png" id="2_t3ex5"]
 [ext_resource type="Texture2D" uid="uid://cv745cybfxamr" path="res://assets/textures/items/item_health_Roughness.png" id="3_dt3dy"]
 
@@ -51,8 +51,9 @@ size = Vector3(0.2, 0.1, 0.3)
 [node name="SupplyMedkit" type="Area3D"]
 collision_layer = 64
 collision_mask = 2
-script = ExtResource("1_t3ex5")
+script = ExtResource("1_uuedp")
 sound = "assets/sounds/objects/collect.ogg"
+prop_name = "medkit"
 
 [node name="health_item" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.74846e-08, -0.4, 1.74846e-08, 0, -1.74846e-08, -0.4, 0.4, -1.74846e-08, 7.64274e-16, 0, 0.0228993, 8.75188e-07)

@@ -68,12 +68,11 @@ func player_add_object(new_object, amount):
 				print("updated supplies : ", player.equip.supplies)
 				
 #----------------------------------- PLAYER REMOVES OBJECT
-func remove_item_from_player(item_removed, amount):
+func remove_item_from_player(item_removed):
 	player = get_tree().get_first_node_in_group("Player")
 	
 	for item in player.equip.supplies:
 #		print(item.item_name, player.equip.supplies.count(item))
 		if item.item_name == item_removed:
-			for n in amount:
-				player.equip.supplies.erase(item)
+			player.equip.supplies.erase(item)
 	print("updated supplies : ", player.equip.supplies)			

@@ -11,7 +11,7 @@ signal player_enemy_to_f2
 
 # TRADE - TRANSFERT
 signal add_object(object, amount)
-signal remove_object(object, amount)
+signal remove_object(object)
 signal inv_add
 signal inv_remove
 # INVENTORY

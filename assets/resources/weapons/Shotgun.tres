@@ -10,6 +10,7 @@ script = ExtResource("1_fm2w1")
 Weapon_Name = "Shotgun"
 Weapon_Type = "Shotgun"
 inv_name = "shotgun"
+item_name = "shotgun"
 model = ExtResource("1_rfalq")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)
