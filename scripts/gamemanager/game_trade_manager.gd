@@ -13,7 +13,7 @@ signal trade_lost
 func _ready() -> void:
 
 	GlobalsPlayer.connect("add_object", player_add_object)
-	
+	GlobalsPlayer.connect("remove_object", remove_item_from_player)
 
 #-------------------------------------------- TEST INPUT
 
@@ -43,7 +43,7 @@ func transfert_item_from_npc_to_player(item_transfered, amount):
 		if item.item_name == item_transfered:
 			for n in amount:
 				player.equip.supplies.append(item)
-				GlobalsPlayer.emit_signal("inv_add")
+				GlobalsPlayer.emit_signal("inv_add", item)
 				NPC_trading.char_desc.supplies.npc_supplies.erase(item)				
 	trade_received.emit(item_transfered, amount)
 	
@@ -52,7 +52,7 @@ func player_receive_reward(item, amount):
 	player = get_tree().get_first_node_in_group("Player")
 	for n in amount:
 		player.equip.supplies.append(item)
-		GlobalsPlayer.emit_signal("inv_add")
+		GlobalsPlayer.emit_signal("inv_add", item)
 	trade_received.emit(item.item_name, amount)
 	
 #----------------------------------- PLAYER ADDS OBJECT 
@@ -76,4 +76,4 @@ func remove_item_from_player(item_removed, amount):
 		if item.item_name == item_removed:
 			for n in amount:
 				player.equip.supplies.erase(item)
-				GlobalsPlayer.emit_signal("inv_remove")
+	print("updated supplies : ", player.equip.supplies)			

@@ -47,5 +47,5 @@ label_settings = SubResource("LabelSettings_2oglu")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 59.0
+offset_bottom = 59.0
