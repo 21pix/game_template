@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="supply_item" load_steps=3 format=3 uid="uid://bj323to8rkcyn"]
+[gd_resource type="Resource" script_class="supply_item" load_steps=4 format=3 uid="uid://bj323to8rkcyn"]
 
 [ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="1_efalt"]
 [ext_resource type="Texture2D" uid="uid://dq6nrxxss8110" path="res://assets/textures/UI/inv_item_medkit_icon.png" id="1_t2er0"]
+[ext_resource type="PackedScene" uid="uid://chwpol174bwe2" path="res://assets/scenes/items/supply_medkit_3D.tscn" id="3_jmivf"]
 
 [resource]
 script = ExtResource("1_efalt")
@@ -9,3 +10,4 @@ item_name = "medkit"
 item_desc = "emergency medical kit"
 inv_name = "medkit"
 inv_icon = ExtResource("1_t2er0")
+spawn_item = ExtResource("3_jmivf")

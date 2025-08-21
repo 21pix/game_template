@@ -24,6 +24,7 @@ expand_mode = 1
 
 [node name="button" type="Button" parent="Icon"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
 offset_left = -5.0
 offset_top = -5.0
 offset_right = 55.0

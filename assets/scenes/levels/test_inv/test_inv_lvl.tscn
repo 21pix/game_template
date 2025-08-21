@@ -57,7 +57,7 @@ gizmo_extents = 2.0
 
 [node name="squads" type="Node" parent="." groups=["LevelSquads"]]
 
-[node name="items" type="Node" parent="."]
+[node name="items" type="Node" parent="." groups=["LevelItems"]]
 
 [node name="SupplyMedkit" parent="items" instance=ExtResource("3_uggo0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249012, 0.99636, -1.5404)

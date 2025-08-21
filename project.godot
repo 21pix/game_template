@@ -149,6 +149,7 @@ PlayerNeutral=""
 MeetFriendPlayer=""
 weaponcontainer=""
 player_equipment=""
+LevelItems=""
 
 [input]
 

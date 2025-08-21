@@ -6,6 +6,7 @@ class_name GameSpawnActors
 @onready var spawner: Node
 @onready var squads_node: Array
 @onready var squads: Node
+@onready var items_node: Node
 @onready var spawned_squads_list: Array
 @onready var squads_alive_list: Array
 @onready var spawned_npc_list: Array
@@ -25,6 +26,7 @@ func get_spawn_data():
 	spwn_node = get_tree().get_nodes_in_group("LevelSpawns") #NODE HOLDING SPAWN INFO
 	spawner = spwn_node[0]
 	squads_node = get_tree().get_nodes_in_group("LevelSquads") #NODE HOSTING SQUADS
+	items_node = get_tree().get_first_node_in_group("LevelItems")
 	squads = squads_node[0]
 	spawn_player()
 	
@@ -94,3 +96,7 @@ func spawn_squad(mob, rdmspn, spawned_scene, squad_equip, spawn_point, spawn_id)
 				spawned_npc_list.append(character)
 	else: return
 #-------------------------------------------------------------------------------
+func spawn_lost_item(item_to_spawn):
+	var spawn_item = item_to_spawn.instantiate()
+	items_node.add_child(spawn_item)
+	spawn_item.position = player_pos + Vector3((randf_range(-0.3, 0.3)),0,-1.0)

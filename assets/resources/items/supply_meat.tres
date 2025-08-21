@@ -10,4 +10,4 @@ item_name = "meat"
 item_desc = "piece of dried meat"
 inv_name = "meat"
 inv_icon = ExtResource("1_e476m")
-visual3D = ExtResource("3_y0tia")
+spawn_item = ExtResource("3_y0tia")

@@ -1,12 +1,14 @@
 extends Node
 class_name GameTradeManager
 
+@onready var spawn_actors: GameSpawnActors = $"../spawn_actors"
 @onready var trade_list: GametradeList = $trade_list
 @onready var inventory = get_tree().get_first_node_in_group("inventory")
 @onready var player_equipment = get_tree().get_first_node_in_group("player_equipment")
 var NPC_trading: Node
 var player: Node
 var transfered_resource: Resource
+var item_to_spawn: PackedScene
 var transfered_amount: int
 signal trade_received
 signal trade_lost
@@ -68,10 +70,8 @@ func player_add_object(new_object, amount):
 			for n in amount:
 				player.equip.supplies.append(trade_object)
 				GlobalsPlayer.emit_signal("inv_add", trade_object)
-#				print("trade_object : ", trade_object.item_name)
-#				print("added supply : ", trade_object.item_name, player.equip.supplies.count(trade_object))
 #				print("updated supplies : ", player.equip.supplies)
-				player_equipment.update_player_equipment_add(trade_object, amount)		
+				player_equipment.update_player_equipment_add(trade_object, amount)	# ADD ITEM TO GLOBAL PLAYER EQ LIST	
 				
 	print(GlobalsPlayer.player_equip_full)			
 	
@@ -80,10 +80,9 @@ func remove_item_from_player(item_removed):
 	player = get_tree().get_first_node_in_group("Player")
 	
 	for item in player.equip.supplies:
-#		print(item.item_name, player.equip.supplies.count(item))
 		if item.item_name == item_removed:
-			player.equip.supplies.erase(item)
-#	print("updated supplies : ", player.equip.supplies)			
-			player_equipment.update_player_equipment_remove(item)
-			
+			player.equip.supplies.erase(item)		
+			player_equipment.update_player_equipment_remove(item) # REMOVE ITEM FROM GLOBAL PLAYER EQ LIST
+			item_to_spawn = item.spawn_item
+			spawn_actors.spawn_lost_item(item_to_spawn)
 	print(GlobalsPlayer.player_equip_full)	
