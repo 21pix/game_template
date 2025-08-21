@@ -16,7 +16,7 @@ signal inv_add
 signal inv_remove
 
 # EQUIPMENT
-var player_equip_full = load("res://assets/resources/player/player_equip_full.tres")
+var player_equip_full: Array
 var player_equip_items = load("res://assets/resources/player/player_supplies.tres")
 
 # INVENTORY

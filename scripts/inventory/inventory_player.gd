@@ -14,7 +14,7 @@ func _ready() -> void:
 	GlobalsPlayer.connect("inv_add", add_item)
 	GlobalsPlayer.connect("inv_remove", initialize_inventory)
 	player_equipment.init_player_equipment()
-	player_inventory_list = GlobalsPlayer.player_equip_full.player_stuff # player_stuff = resource list for player inventory objects
+	player_inventory_list = GlobalsPlayer.player_equip_full # player_stuff = resource list for player inventory objects
 #---------------
 	
 	initialize_inventory()

@@ -73,7 +73,7 @@ func player_add_object(new_object, amount):
 #				print("updated supplies : ", player.equip.supplies)
 				player_equipment.update_player_equipment_add(trade_object, amount)		
 				
-	print(GlobalsPlayer.player_equip_full.player_stuff)			
+	print(GlobalsPlayer.player_equip_full)			
 	
 #----------------------------------- PLAYER REMOVES OBJECT
 func remove_item_from_player(item_removed):
@@ -86,4 +86,4 @@ func remove_item_from_player(item_removed):
 #	print("updated supplies : ", player.equip.supplies)			
 			player_equipment.update_player_equipment_remove(item)
 			
-	print(GlobalsPlayer.player_equip_full.player_stuff)	
+	print(GlobalsPlayer.player_equip_full)	

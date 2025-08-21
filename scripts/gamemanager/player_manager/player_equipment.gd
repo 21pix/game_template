@@ -11,12 +11,12 @@ func init_player_equipment():
 	player_weaponset = player_weaponcont.WeaponSet
 	player_itemset = GlobalsPlayer.player_equip_items.supplies
 	
-	GlobalsPlayer.player_equip_full.player_stuff.append_array(player_weaponset)
-	GlobalsPlayer.player_equip_full.player_stuff.append_array(player_itemset)
+	GlobalsPlayer.player_equip_full.append_array(player_weaponset)
+	GlobalsPlayer.player_equip_full.append_array(player_itemset)
 
 func update_player_equipment_add(item, amount):
 	for n in amount:
-		GlobalsPlayer.player_equip_full.player_stuff.append(item)
+		GlobalsPlayer.player_equip_full.append(item)
 
 func update_player_equipment_remove(item):
-	GlobalsPlayer.player_equip_full.player_stuff.erase(item)
+	GlobalsPlayer.player_equip_full.erase(item)
