@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bulmrmb5ix5o5"]
+[gd_scene load_steps=20 format=3 uid="uid://bulmrmb5ix5o5"]
 
 [ext_resource type="Script" uid="uid://b7c048lyhsngs" path="res://scripts/game/game.gd" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://uf1h0hw1t70n" path="res://scripts/gamemanager/game_manager_main.gd" id="2_78awf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://r7lugeqw65br" path="res://scripts/gamemanager/game_dialogue.gd" id="5_aug50"]
 [ext_resource type="Script" uid="uid://dnr1wj4m0y2pm" path="res://scripts/gamemanager/game_npc_manager.gd" id="6_kiw3p"]
 [ext_resource type="Script" uid="uid://qorcyrs1swpp" path="res://scripts/gamemanager/game_trade_manager.gd" id="7_2rd6h"]
+[ext_resource type="Script" uid="uid://dadqj4pa7rvj0" path="res://scripts/gamemanager/player_manager/player_equipment.gd" id="7_30op7"]
 [ext_resource type="Script" uid="uid://dsyj2n2kcr2mq" path="res://scripts/gamemanager/game_tasks_manager.gd" id="7_400sg"]
 [ext_resource type="Script" uid="uid://ca2fggnuju4ql" path="res://scripts/gamemanager/game_tasks_list.gd" id="8_g4kob"]
 [ext_resource type="Script" uid="uid://cychrh6tkfrh4" path="res://scripts/gamemanager/game_trade_list.gd" id="8_r7sob"]
@@ -48,6 +49,11 @@ script = ExtResource("5_aug50")
 script = ExtResource("6_kiw3p")
 
 [node name="Timer" type="Timer" parent="game_manager/npc_manager"]
+
+[node name="player_manager" type="Node" parent="game_manager"]
+
+[node name="player_equipment" type="Node" parent="game_manager/player_manager" groups=["player_equipment"]]
+script = ExtResource("7_30op7")
 
 [node name="trade_manager" type="Node" parent="game_manager"]
 script = ExtResource("7_2rd6h")

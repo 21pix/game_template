@@ -12,7 +12,7 @@ func _ready() -> void:
 func button_action():
 	print("hosted item name : ", child_item_name)
 	GlobalsPlayer.remove_object.emit(child_item_name)
-	print(child_item_name)
+#	print(child_item_name)
 	inventory_slot.queue_free()
 	
 func get_item_info(item):

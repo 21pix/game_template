@@ -148,6 +148,7 @@ PlayerNeutral_to_f2=""
 PlayerNeutral=""
 MeetFriendPlayer=""
 weaponcontainer=""
+player_equipment=""
 
 [input]
 
