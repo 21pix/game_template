@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="WeaponClass" load_steps=5 format=3 uid="uid://bdm47jbfijvyp"]
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=6 format=3 uid="uid://bdm47jbfijvyp"]
 
+[ext_resource type="Texture2D" uid="uid://c8tav1ieuljn" path="res://assets/textures/UI/inv_item_rifle_icon.png" id="1_5iy2g"]
 [ext_resource type="PackedScene" uid="uid://bosmglflgi5e6" path="res://assets/scenes/weapons/RifleFull.tscn" id="1_48pfj"]
 [ext_resource type="AudioStream" uid="uid://nwncynq41j7q" path="res://assets/sounds/weapons/RifleShot3.mp3" id="3_3u7qr"]
 [ext_resource type="AudioStream" uid="uid://dlud82xo8x8yp" path="res://assets/sounds/weapons/Rifle_reload.mp3" id="3_af0ye"]
@@ -10,6 +11,7 @@ script = ExtResource("3_odlp7")
 Weapon_Name = "GRZA"
 Weapon_Type = "Rifle"
 inv_name = "rifle"
+inv_icon = ExtResource("1_5iy2g")
 model = ExtResource("1_48pfj")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)

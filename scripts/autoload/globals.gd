@@ -33,12 +33,6 @@ signal stealth_off
 signal door_open
 signal interact
 #-------------- INVENTORY
-signal inv_add
-signal get_info
-signal found_purplekey
-signal used_purplekey
-signal found_redkey
-signal used_redkey
 
 signal add_ammo_P
 signal add_ammo_S

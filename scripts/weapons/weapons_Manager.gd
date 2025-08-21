@@ -105,12 +105,13 @@ func handle_weapon(_delta):
 	
 	if Input.is_action_just_pressed("weapon_toggle_down"):
 		action_weapon_toggle_down()
-		
-	if Input.is_action_pressed("shoot"):
-		shoot_main()
-		
-	if Input.is_action_just_released("shoot"):
-		shot_count = 0
+	
+	if !GlobalsPlayer.inventory_on:
+		if Input.is_action_pressed("shoot"):
+			shoot_main()	
+		if Input.is_action_just_released("shoot"):
+			shot_count = 0
+	else: return
 		
 	if Input.is_action_just_pressed("AIM"):
 		targetFov = camera.fov - 10	

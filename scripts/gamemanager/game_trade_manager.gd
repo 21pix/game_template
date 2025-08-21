@@ -2,7 +2,7 @@ extends Node
 class_name GameTradeManager
 
 @onready var trade_list: GametradeList = $trade_list
-
+@onready var inventory = get_tree().get_first_node_in_group("inventory")
 var NPC_trading: Node
 var player: Node
 var transfered_resource: Resource
@@ -28,6 +28,7 @@ func transfert_item_from_player_to_npc(item_transfered, amount):
 		if item.item_name == item_transfered:
 			for n in amount:
 				player.equip.supplies.erase(item)
+				GlobalsPlayer.emit_signal("inv_remove")
 				NPC_trading.char_desc.supplies.npc_supplies.append(item)
 				
 	trade_lost.emit(item_transfered, amount)
@@ -42,6 +43,7 @@ func transfert_item_from_npc_to_player(item_transfered, amount):
 		if item.item_name == item_transfered:
 			for n in amount:
 				player.equip.supplies.append(item)
+				GlobalsPlayer.emit_signal("inv_add")
 				NPC_trading.char_desc.supplies.npc_supplies.erase(item)				
 	trade_received.emit(item_transfered, amount)
 	
@@ -50,7 +52,7 @@ func player_receive_reward(item, amount):
 	player = get_tree().get_first_node_in_group("Player")
 	for n in amount:
 		player.equip.supplies.append(item)
-	
+		GlobalsPlayer.emit_signal("inv_add")
 	trade_received.emit(item.item_name, amount)
 	
 #----------------------------------- PLAYER ADDS OBJECT 
@@ -60,6 +62,7 @@ func player_add_object(new_object, amount):
 		if new_object == trade_object.item_name:
 			for n in amount:
 				player.equip.supplies.append(trade_object)
+				GlobalsPlayer.emit_signal("inv_add", trade_object)
 #				print("trade_object : ", trade_object.item_name)
 				print("added supply : ", trade_object.item_name, player.equip.supplies.count(trade_object))
 				print("updated supplies : ", player.equip.supplies)
@@ -73,4 +76,4 @@ func remove_item_from_player(item_removed, amount):
 		if item.item_name == item_removed:
 			for n in amount:
 				player.equip.supplies.erase(item)
-				NPC_trading.char_desc.supplies.npc_supplies.append(item)			
+				GlobalsPlayer.emit_signal("inv_remove")

@@ -59,4 +59,10 @@ gizmo_extents = 2.0
 [node name="items" type="Node" parent="."]
 
 [node name="SupplyMedkit" parent="items" instance=ExtResource("3_uggo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99636, -1.5404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249012, 0.99636, -1.5404)
+
+[node name="SupplyMedkit2" parent="items" instance=ExtResource("3_uggo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127119, 0.99636, -1.5404)
+
+[node name="SupplyMedkit3" parent="items" instance=ExtResource("3_uggo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490961, 0.99636, -1.5404)

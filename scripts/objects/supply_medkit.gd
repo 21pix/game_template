@@ -1,6 +1,7 @@
 extends Area3D
 class_name ItemMedkit
 @export var sound: String
+
 @onready var object_medkit: Area3D = $"."
 
 var item_selected: bool = false
@@ -17,6 +18,6 @@ func interact(Node):
 		if item_selected:
 			GlobalsPlayer.add_object.emit("medkit", 1)
 			Audio.play(sound)
-			object_medkit.queue_free()	
+			object_medkit.queue_free()
 	else:
 		return

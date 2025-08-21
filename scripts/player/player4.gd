@@ -12,6 +12,8 @@ class_name FPS_player
 @export var velocity_mult = 200
 @onready var interact_ray: RayCast3D = $Head/Camera/InteractDetect/InteractRay
 
+@onready var inventory_player: CanvasLayer = $InventoryPlayer
+
 @export var invert_weapon_sway : bool = false
 
 @export var bob_amount_walk : float = 0.05
@@ -119,7 +121,7 @@ func _physics_process(delta):
 	camera.position.y = lerp(camera.position.y, 0.0, delta * 5)
 	
 	if is_on_floor() and gravity > 1 and !previously_floored: # Landed
-		Audio.play("sounds/land.ogg")
+		Audio.play("assets/sounds/player/land.ogg")
 		camera.position.y = -0.1
 	
 	previously_floored = is_on_floor()
@@ -153,7 +155,19 @@ func handle_controls(_delta):
 #		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 #		mouse_captured = true
 		
-		
+	if Input.is_action_just_released("inventory"):
+		if !GlobalsPlayer.inventory_on:
+			inventory_player.visible = true	
+			GlobalsPlayer.inventory_on = true
+			mouse_captured = false
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			
+		elif GlobalsPlayer.inventory_on:
+			inventory_player.visible = false
+			GlobalsPlayer.inventory_on = false
+			mouse_captured = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
 	if Input.is_action_pressed("exit"):
 		get_tree().quit()
 		
@@ -211,7 +225,7 @@ func handle_controls(_delta):
 # Jumping
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		Audio.play("sounds/jump_a.ogg, sounds/jump_b.ogg, sounds/jump_c.ogg")
+		Audio.play("assets/sounds/player/jump_a.ogg, assets/sounds/player/jump_b.ogg, assets/sounds/player/jump_c.ogg")
 		action_jump()	
 		
 # Movement

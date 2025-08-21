@@ -11,3 +11,7 @@ signal player_enemy_to_f2
 
 # TRADE - TRANSFERT
 signal add_object(object, amount)
+signal inv_add
+signal inv_remove
+# INVENTORY
+var inventory_on: bool
