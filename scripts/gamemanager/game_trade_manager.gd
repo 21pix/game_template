@@ -16,7 +16,8 @@ func _ready() -> void:
 
 	GlobalsPlayer.connect("add_object", player_add_object)
 	GlobalsPlayer.connect("remove_object", remove_item_from_player)
-
+	GlobalsPlayer.connect("transfert_object_to_player", transfert_item_from_chest_to_player)
+	
 #-------------------------------------------- TEST INPUT
 
 		
@@ -85,3 +86,16 @@ func remove_item_from_player(item_removed):
 			item_to_spawn = item.spawn_item
 			spawn_actors.spawn_lost_item(item_to_spawn)
 	print(GlobalsPlayer.player_equip_full)	
+
+#------------------------------------ TRANSFER ITEM FROM CHEST TO PLAYER
+func transfert_item_from_chest_to_player(item_transfered):
+	player = get_tree().get_first_node_in_group("Player")
+	var chest = get_tree().get_first_node_in_group("active_chest")
+	
+	for item in chest.chest_content.items:
+#		print(item.item_name, NPC_trading.char_desc.supplies.npc_supplies.count(item))
+		if item.item_name == item_transfered:
+			player.equip.supplies.append(item)
+			GlobalsPlayer.emit_signal("inv_add", item)
+			chest.chest_content.items.erase(item)
+			player_equipment.update_player_equipment_add(item, 1)

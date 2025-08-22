@@ -151,6 +151,7 @@ player_equipment=""
 LevelItems=""
 inventory_player=""
 inventory_b=""
+active_chest=""
 
 [input]
 

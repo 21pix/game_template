@@ -19,10 +19,13 @@ func _on_area_exited(area: Area3D) -> void:
 func interact(Node):
 	if is_instance_valid(prop_self):	
 		if item_selected:
+			prop_self.add_to_group("active_chest")
 			GlobalsPlayer.inventory_b_content = []
 			GlobalsPlayer.inventory_b_content.append_array(chest_content.items)
-			print("chest content : ",chest_content.items)
-			Audio.play(sound)
 			
+#			print("chest content : ",chest_content.items)
+			Audio.play(sound)
+		else:
+			prop_self.remove_from_group("active_chest")
 	else:
 		return
