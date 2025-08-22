@@ -16,11 +16,13 @@ func _on_area_exited(area: Area3D) -> void:
 
 func interact(Node):
 	if is_instance_valid(prop_self):
+		
 		if item_selected:
-			GlobalsPlayer.inventory_b_on = true
+			GlobalsPlayer.chest_open = true
 			GlobalsPlayer.chest_content = chest_content.items
+			print(chest_content.items)
 			Audio.play(sound)
 			
 	else:
-		GlobalsPlayer.inventory_b = false
+		GlobalsPlayer.chest_open = false
 		return

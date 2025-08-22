@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("1_xvian")
-chest_content = [ExtResource("1_macdm"), ExtResource("2_nmjgf"), ExtResource("2_nmjgf"), ExtResource("3_qqq4d")]
+items = Array[Resource]([ExtResource("1_macdm"), ExtResource("2_nmjgf"), ExtResource("3_qqq4d")])
 metadata/_custom_type_script = "uid://xxty6b5atekp"
