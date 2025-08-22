@@ -15,12 +15,11 @@ signal trade_lost
 func _ready() -> void:
 
 	GlobalsPlayer.connect("add_object", player_add_object)
-	GlobalsPlayer.connect("remove_object", remove_item_from_player)
+	GlobalsPlayer.connect("trader_add_object", trader_add_object)
+	GlobalsPlayer.connect("remove_object", drop_item_from_player)
 	GlobalsPlayer.connect("transfert_object_to_player", transfert_item_from_chest_to_player)
-	
-#-------------------------------------------- TEST INPUT
-
-		
+	GlobalsPlayer.connect("transfert_object_to_trader", transfert_item_from_player_to_chest)
+			
 #------------------- TRANSFERT FROM PLAYER TO NPC --------------------------------------------------
 func transfert_item_from_player_to_npc(item_transfered, amount):
 	player = get_tree().get_first_node_in_group("Player")
@@ -31,7 +30,7 @@ func transfert_item_from_player_to_npc(item_transfered, amount):
 		if item.item_name == item_transfered:
 			for n in amount:
 				player.equip.supplies.erase(item)
-				GlobalsPlayer.emit_signal("inv_remove")
+				GlobalsPlayer.emit_signal("inv_p_remove")
 				NPC_trading.char_desc.supplies.npc_supplies.append(item)
 				player_equipment.update_player_equipment_remove(item)
 				
@@ -72,11 +71,10 @@ func player_add_object(new_object, amount):
 				GlobalsPlayer.emit_signal("inv_add", trade_object)
 #				print("updated supplies : ", player.equip.supplies)
 				player_equipment.update_player_equipment_add(trade_object, amount)	# ADD ITEM TO GLOBAL PLAYER EQ LIST	
-				
-	print(GlobalsPlayer.player_equip_full)			
+						
 	
 #----------------------------------- PLAYER REMOVES OBJECT
-func remove_item_from_player(item_removed):
+func drop_item_from_player(item_removed):
 	player = get_tree().get_first_node_in_group("Player")
 	
 	for item in player.equip.supplies:
@@ -85,7 +83,7 @@ func remove_item_from_player(item_removed):
 			player_equipment.update_player_equipment_remove(item) # REMOVE ITEM FROM GLOBAL PLAYER EQ LIST
 			item_to_spawn = item.spawn_item
 			spawn_actors.spawn_lost_item(item_to_spawn)
-	print(GlobalsPlayer.player_equip_full)	
+		
 
 #------------------------------------ TRANSFER ITEM FROM CHEST TO PLAYER
 func transfert_item_from_chest_to_player(item_transfered):
@@ -99,3 +97,41 @@ func transfert_item_from_chest_to_player(item_transfered):
 			GlobalsPlayer.emit_signal("inv_add", item)
 			chest.chest_content.items.erase(item)
 			player_equipment.update_player_equipment_add(item, 1)
+
+#------------------------------------ TRANSFER ITEM FROM PLAYER TO CHEST
+func transfert_item_from_player_to_chest_old(item_transfered):
+	player = get_tree().get_first_node_in_group("Player")
+	var chest = get_tree().get_first_node_in_group("active_chest")
+	
+	for item in player.equip.supplies:
+		if item.item_name == item_transfered:
+			player.equip.supplies.erase(item)
+			chest.chest_content.items.append(item)
+			GlobalsPlayer.emit_signal("inv_p_reset")
+			player_equipment.update_player_equipment_remove(item)
+			
+func transfert_item_from_player_to_chest(item_transfered):
+	player = get_tree().get_first_node_in_group("Player")	
+	remove_item_from_player_for_trade(item_transfered)
+	trader_add_object(item_transfered)
+
+#----------------------------------- PLAYER REMOVES OBJECT FOR TRADE
+func remove_item_from_player_for_trade(item_removed):
+	player = get_tree().get_first_node_in_group("Player")
+	
+	for item in player.equip.supplies:
+		if item.item_name == item_removed:
+			player.equip.supplies.erase(item)		
+			player_equipment.update_player_equipment_remove(item) # REMOVE ITEM FROM GLOBAL PLAYER EQ LIST
+				
+#----------------------------------- TRADER ADDS OBJECT 
+func trader_add_object(new_object):
+	var chest = get_tree().get_first_node_in_group("active_chest")
+	for trade_object in trade_list.trade_list:
+		if new_object == trade_object.item_name:
+				chest.chest_content.items.append(trade_object)
+				GlobalsPlayer.emit_signal("inv_b_add", trade_object)
+
+
+	
+	

@@ -11,11 +11,15 @@ signal player_enemy_to_f2
 
 # TRADE - TRANSFERT
 signal add_object(object, amount)
+signal trader_add_object(object)
 signal remove_object(object)
 signal transfert_object_to_player(object)
 signal transfert_object_to_trader(object)
 signal inv_add
-signal inv_remove
+signal inv_b_add
+signal inv_p_remove
+signal inv_b_remove
+signal inv_p_reset
 
 # EQUIPMENT
 var player_equip_full: Array

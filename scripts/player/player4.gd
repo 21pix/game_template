@@ -159,19 +159,29 @@ func handle_controls(_delta):
 		
 	if Input.is_action_just_released("inventory"):
 		
-		if !GlobalsPlayer.inventory_on:
-			inventory_player.open_player_inventory()
-			mouse_captured = false
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			crosshair.visible = false
-			
+		if !GlobalsPlayer.inventory_on :
+			if !GlobalsPlayer.chest_available:
+				inventory_player.open_player_inventory()
+				mouse_captured = false
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				crosshair.visible = false
+				
+			elif GlobalsPlayer.chest_available:
+				print("open inv 2")
+				Globals.emit_signal("interact")
+				interact_detect.interact()
+				inventory_player.open_both_inventory()
+				mouse_captured = false
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				crosshair.visible = false		
+					
 		elif GlobalsPlayer.inventory_on:
 			inventory_player.close_both_inventory()
 			mouse_captured = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			crosshair.visible = true
 				
-			
+	
 # INTERACT
 
 	if Input.is_action_just_released("interact"):
@@ -181,11 +191,7 @@ func handle_controls(_delta):
 		if !Globals.item_detected:
 			return
 		# FIX THIS ::
-		if GlobalsPlayer.chest_available and !GlobalsPlayer.inventory_b_on:
-			inventory_player.open_both_inventory()
-			mouse_captured = false
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			crosshair.visible = false
+
 
 # EXIT GAME		
 	if Input.is_action_pressed("exit"):

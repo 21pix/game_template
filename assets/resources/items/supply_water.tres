@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="supply_item" load_steps=3 format=3 uid="uid://7ulbpixxlo2"]
+[gd_resource type="Resource" script_class="supply_item" load_steps=4 format=3 uid="uid://7ulbpixxlo2"]
 
 [ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="1_0dut8"]
+[ext_resource type="Texture2D" uid="uid://bq1phsghiwitf" path="res://assets/textures/UI/inv_item_water_icon.png" id="1_ltmnd"]
 [ext_resource type="PackedScene" uid="uid://d3edxxnq6y5j6" path="res://assets/scenes/items/supply_water_3D.tscn" id="2_i1cvy"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_0dut8")
 item_name = "water"
 item_desc = "small bottle of filtered water"
 inv_name = "water"
+inv_icon = ExtResource("1_ltmnd")
 spawn_item = ExtResource("2_i1cvy")

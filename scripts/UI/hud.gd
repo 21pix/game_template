@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var e_interact: VBoxContainer = $"E interact"
+@onready var i_interact: VBoxContainer = $"I interact"
 @onready var crosshair: TextureRect = $Crosshair
 
 @onready var CurrentWeaponLabel = $VBoxContainer2/HBoxContainer/CurrentWeapon
@@ -39,9 +40,15 @@ func _on_player_player_hit() -> void:
 	pass
 
 func _on_interact_detect_area_entered(area: Area3D) -> void:
-	e_interact.visible = true
-	crosshair.visible = false
-
+	if !GlobalsPlayer.chest_available:
+		e_interact.visible = true
+		crosshair.visible = false
+		
+	if GlobalsPlayer.chest_available:
+		i_interact.visible = true
+		crosshair.visible = false
+		
 func _on_interact_detect_area_exited(area: Area3D) -> void:
 	e_interact.visible = false
+	i_interact.visible = false
 	crosshair.visible = true

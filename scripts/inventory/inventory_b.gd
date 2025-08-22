@@ -11,13 +11,9 @@ var init_done: bool = false
 var SLOTB_SCENE = preload("res://assets/scenes/UI/inventory_b_slot.tscn")
 
 func _ready() -> void:
-#--------- GET ITEMS FROM GENERATOR 
-	
-	GlobalsPlayer.connect("inv_remove", initialize_inventory)
-	
-	 # GET LIST FROM CHEST RESOURCE
-#---------------
-	
+	GlobalsPlayer.connect("inv_b_remove", initialize_inventory)
+	GlobalsPlayer.connect("inv_b_add", add_item)	
+
 	initialize_inventory()
 
 func initialize_inventory():
@@ -28,10 +24,8 @@ func clear_inventory():
 	var slot_list = inventory_b.get_children()
 	for slot in slot_list:
 		inventory_b.remove_child(slot)
-	print("slot list : ", slot_list)	
 	
 func populate_inventory():
-	print(inventory_b.get_children())
 	inventoryb_list = []
 	inventoryb_list = GlobalsPlayer.inventory_b_content
 	print("inventory b list : ", inventoryb_list)
