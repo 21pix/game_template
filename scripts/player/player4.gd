@@ -170,12 +170,7 @@ func handle_controls(_delta):
 			mouse_captured = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			crosshair.visible = true
-			
-		if GlobalsPlayer.inventory_on and GlobalsPlayer.inventory_b_on:
-			inventory_player.close_both_inventory()
-			mouse_captured = true
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			crosshair.visible = true	
+				
 			
 # INTERACT
 
@@ -185,8 +180,8 @@ func handle_controls(_delta):
 			interact_detect.interact() # If Player overlaps with item coll box > 
 		if !Globals.item_detected:
 			return
-		
-		if GlobalsPlayer.chest_open:
+		# FIX THIS ::
+		if GlobalsPlayer.chest_available and !GlobalsPlayer.inventory_b_on:
 			inventory_player.open_both_inventory()
 			mouse_captured = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

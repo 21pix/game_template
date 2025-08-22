@@ -22,5 +22,5 @@ var player_equip_items = load("res://assets/resources/player/player_supplies.tre
 # INVENTORY
 var inventory_on: bool
 var inventory_b_on: bool
-var chest_content: Array[Resource]
-var chest_open: bool
+var inventory_b_content: Array[Resource]
+var chest_available: bool

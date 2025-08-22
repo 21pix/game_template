@@ -70,4 +70,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127119, 0.99636, -1.5404)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543747, 1.02593, -1.54663)
 
 [node name="Chest" parent="." instance=ExtResource("5_nhgrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57119, 2.38419e-07, -1.6962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20928, 2.38419e-07, -1.6962)
