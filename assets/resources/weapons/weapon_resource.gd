@@ -1,5 +1,4 @@
 extends Resource
-
 class_name WeaponClass
 
 @export var Weapon_Name : String

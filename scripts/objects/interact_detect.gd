@@ -11,21 +11,11 @@ func _ready() -> void:
 	pass
 
 func _on_area_entered(area: Area3D) -> void:
-	item_detected = true
+	Globals.item_detected = true
 	
 func _on_area_exited(area: Area3D) -> void:
-	item_detected = false
-		
-
-func _process(delta: float) -> void:
-	
-	if Input.is_action_pressed("interact"):
-		if item_detected:
-			Globals.emit_signal("interact")
-			interact() # If Player overlaps with item coll box > 
-		if !item_detected:
-			return
-	
+	Globals.item_detected = false
+			
 func interact():
 	interact_ray.force_raycast_update()
 	var item_collider = interact_ray.get_collider()

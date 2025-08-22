@@ -114,7 +114,6 @@ Cover=""
 Player=""
 spawner=""
 InteractDetect=""
-inventory=""
 EnemyB=""
 cover_object=""
 cover_target=""
@@ -150,6 +149,8 @@ MeetFriendPlayer=""
 weaponcontainer=""
 player_equipment=""
 LevelItems=""
+inventory_player=""
+inventory_b=""
 
 [input]
 

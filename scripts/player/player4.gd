@@ -11,8 +11,10 @@ class_name FPS_player
 @export var gravity := 0.0
 @export var velocity_mult = 200
 @onready var interact_ray: RayCast3D = $Head/Camera/InteractDetect/InteractRay
+@onready var interact_detect: Area3D = $Head/Camera/InteractDetect
 
-@onready var inventory_player: CanvasLayer = $InventoryPlayer
+@onready var inventory_player = get_tree().get_first_node_in_group("inventory_player")
+@onready var inventory_b = get_tree().get_first_node_in_group("inventory_b")
 
 @export var invert_weapon_sway : bool = false
 
@@ -157,17 +159,29 @@ func handle_controls(_delta):
 		
 	if Input.is_action_just_released("inventory"):
 		if !GlobalsPlayer.inventory_on:
-			inventory_player.visible = true	
+			inventory_player.visible = true
+			if GlobalsPlayer.inventory_b_on:
+				inventory_b.visible = true
 			GlobalsPlayer.inventory_on = true
 			mouse_captured = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 		elif GlobalsPlayer.inventory_on:
 			inventory_player.visible = false
+			if GlobalsPlayer.inventory_b_on:
+				inventory_b.visible = false
 			GlobalsPlayer.inventory_on = false
 			mouse_captured = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
+# INTERACT
+
+	if Input.is_action_pressed("interact"):
+		if Globals.item_detected:
+			Globals.emit_signal("interact")
+			interact_detect.interact() # If Player overlaps with item coll box > 
+		if !Globals.item_detected:
+			return		
+# EXIT GAME		
 	if Input.is_action_pressed("exit"):
 		get_tree().quit()
 		

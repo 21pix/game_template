@@ -32,6 +32,7 @@ signal stealth_off
 
 signal door_open
 signal interact
+var item_detected: bool
 #-------------- INVENTORY
 
 signal add_ammo_P

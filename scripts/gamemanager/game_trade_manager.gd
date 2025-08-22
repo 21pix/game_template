@@ -3,7 +3,6 @@ class_name GameTradeManager
 
 @onready var spawn_actors: GameSpawnActors = $"../spawn_actors"
 @onready var trade_list: GametradeList = $trade_list
-@onready var inventory = get_tree().get_first_node_in_group("inventory")
 @onready var player_equipment = get_tree().get_first_node_in_group("player_equipment")
 var NPC_trading: Node
 var player: Node

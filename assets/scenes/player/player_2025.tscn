@@ -410,7 +410,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.514, -0.432644)
 shape = SubResource("BoxShape3D_xff14")
 
 [node name="InventoryPlayer" parent="." instance=ExtResource("17_xrp01")]
-visible = false
 
 [connection signal="area_entered" from="Head/Camera/InteractDetect" to="Head/Camera/InteractDetect" method="_on_area_entered"]
 [connection signal="area_entered" from="Head/Camera/InteractDetect" to="HUD" method="_on_interact_detect_area_entered"]

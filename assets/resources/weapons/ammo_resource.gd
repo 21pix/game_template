@@ -1,5 +1,4 @@
 extends Resource
-
 class_name ammo
 
 @export var ammo_type : String

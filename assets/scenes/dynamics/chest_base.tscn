@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw2h2s525peyk"]
+
+[ext_resource type="Script" uid="uid://cmlw0p1ywhvew" path="res://scripts/dynamics/chest_base.gd" id="1_wgj85"]
+[ext_resource type="Resource" uid="uid://imley0ig7ri1" path="res://assets/resources/dynamics/chest_default.tres" id="2_m5dgx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f8l75"]
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sndu4"]
+albedo_color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0u0tu"]
+size = Vector3(1, 0.7, 1)
+
+[node name="Chest" type="Area3D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_wgj85")
+sound = "assets/sounds/objects/collect.ogg"
+chest_content = ExtResource("2_m5dgx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_f8l75")
+surface_material_override/0 = SubResource("StandardMaterial3D_sndu4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("BoxShape3D_0u0tu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
