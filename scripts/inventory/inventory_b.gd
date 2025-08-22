@@ -12,6 +12,7 @@ var SLOTB_SCENE = preload("res://assets/scenes/UI/inventory_b_slot.tscn")
 
 func _ready() -> void:
 	GlobalsPlayer.connect("inv_b_remove", initialize_inventory)
+	GlobalsPlayer.connect("inv_b_reset", initialize_inventory)
 	GlobalsPlayer.connect("inv_b_add", add_item)	
 
 	initialize_inventory()

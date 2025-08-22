@@ -20,6 +20,7 @@ signal inv_b_add
 signal inv_p_remove
 signal inv_b_remove
 signal inv_p_reset
+signal inv_b_reset
 
 # EQUIPMENT
 var player_equip_full: Array

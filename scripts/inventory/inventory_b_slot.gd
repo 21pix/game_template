@@ -11,7 +11,6 @@ func _ready() -> void:
 	
 func button_action():
 	GlobalsPlayer.transfert_object_to_player.emit(child_item_name)
-	GlobalsPlayer.trader_add_object.emit(child_item_name)
 	inventory_b_slot.queue_free()
 	
 func get_item_info(item):

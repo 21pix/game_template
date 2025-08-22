@@ -93,23 +93,14 @@ func transfert_item_from_chest_to_player(item_transfered):
 	for item in chest.chest_content.items:
 #		print(item.item_name, NPC_trading.char_desc.supplies.npc_supplies.count(item))
 		if item.item_name == item_transfered:
-			player.equip.supplies.append(item)
-			GlobalsPlayer.emit_signal("inv_add", item)
+			player.equip.supplies.append(item)			
 			chest.chest_content.items.erase(item)
+			GlobalsPlayer.inventory_b_content.erase(item)
+			GlobalsPlayer.emit_signal("inv_b_reset")
+			GlobalsPlayer.emit_signal("inv_add", item)
 			player_equipment.update_player_equipment_add(item, 1)
 
-#------------------------------------ TRANSFER ITEM FROM PLAYER TO CHEST
-func transfert_item_from_player_to_chest_old(item_transfered):
-	player = get_tree().get_first_node_in_group("Player")
-	var chest = get_tree().get_first_node_in_group("active_chest")
-	
-	for item in player.equip.supplies:
-		if item.item_name == item_transfered:
-			player.equip.supplies.erase(item)
-			chest.chest_content.items.append(item)
-			GlobalsPlayer.emit_signal("inv_p_reset")
-			player_equipment.update_player_equipment_remove(item)
-			
+#------------------------------------ TRANSFER ITEM FROM PLAYER TO CHEST			
 func transfert_item_from_player_to_chest(item_transfered):
 	player = get_tree().get_first_node_in_group("Player")	
 	remove_item_from_player_for_trade(item_transfered)
@@ -129,9 +120,9 @@ func trader_add_object(new_object):
 	var chest = get_tree().get_first_node_in_group("active_chest")
 	for trade_object in trade_list.trade_list:
 		if new_object == trade_object.item_name:
-				chest.chest_content.items.append(trade_object)
-				GlobalsPlayer.emit_signal("inv_b_add", trade_object)
-
+			chest.chest_content.items.append(trade_object)
+			GlobalsPlayer.inventory_b_content.append(trade_object)
+			GlobalsPlayer.emit_signal("inv_b_reset")
 
 	
 	
