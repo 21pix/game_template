@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd3l5havucgwm"]
+[gd_scene load_steps=3 format=3 uid="uid://cd3l5havucgwm"]
 
 [ext_resource type="Script" uid="uid://bnw5qdjm3g6en" path="res://scripts/inventory/inventory_b_slot.gd" id="1_2vkif"]
 [ext_resource type="Texture2D" uid="uid://cl7uvvr4f5rs1" path="res://assets/textures/UI/inv_item_temp_icon.png" id="2_453wr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2oglu"]
 
 [node name="inventory_b_slot" type="Panel"]
 custom_minimum_size = Vector2(60, 60)
@@ -44,9 +42,9 @@ offset_left = 1.0
 offset_right = 58.0
 offset_bottom = 30.0
 text = "1"
-label_settings = SubResource("LabelSettings_2oglu")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_right = 59.0
 offset_bottom = 59.0
+action_mode = 0
