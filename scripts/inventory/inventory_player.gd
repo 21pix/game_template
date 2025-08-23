@@ -14,6 +14,7 @@ var SLOT_SCENE = preload("res://assets/scenes/UI/inventory_slot.tscn")
 func _ready() -> void:
 	player_equipment.init_player_equipment()
 	GlobalsPlayer.connect("inv_p_reset", initialize_inventory)
+	GlobalsPlayer.connect("remove_slot", remove_item)
 	initialize_inventory()
 
 func initialize_inventory():
@@ -50,3 +51,15 @@ func add_item(item):
 			if playerslot.slotname == item.item_name :
 				print(item.inv_name," ", "amount : ", item_amount)
 				playerslot.set_quantity(item_amount)
+
+func remove_item(slot_selected, item):
+	if items_in_inv.count(item) == 1:
+		slot_selected.delete_slot()	
+	
+	elif items_in_inv.count(item) >= 2:
+		item_amount = player_inventory_list.count(item)
+		for slot in slots:
+			if slot.slotname == item.item_name :
+				print(item.inv_name," ", "amount : ", item_amount)
+				slot.set_quantity(item_amount)
+				

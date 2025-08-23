@@ -55,7 +55,7 @@ func remove_item(slot_selected, item):
 	if items_in_inv.count(item) == 1:
 		slot_selected.delete_slot()	
 	
-	elif items_in_inv.has(item):
+	elif items_in_inv.count(item) >= 2:
 		item_amount = inventoryb_list.count(item)
 		for slot in slots:
 			if slot.slotname == item.item_name :
