@@ -2,6 +2,8 @@ extends Node
 class_name Inventory
 
 @onready var player_inventory_list: Array
+@onready var items_in_inv: Array
+@onready var item_amount: int
 @onready var slots: Array[InventorySlot]
 @onready var inventory: Inventory = $"."
 @onready var player_equipment = get_tree().get_first_node_in_group("player_equipment")
@@ -18,13 +20,19 @@ func _ready() -> void:
 	initialize_inventory()
 
 func initialize_inventory():
-#	clear_inventory()
-	for item in player_inventory_list:		
-		var slot = SLOT_SCENE.instantiate()	
-		slot.get_item_info(item)
-		slot.set_icon()
-		inventory.add_child(slot)
+	clear_inventory()
+	populate_inventory()
 
+func populate_inventory():
+	slots = []
+	items_in_inv = []
+	player_inventory_list = []
+	player_inventory_list = GlobalsPlayer.player_equip_full
+#	print("inventory b list : ", inventoryb_list)
+
+	for item in player_inventory_list:
+		add_item(item)
+		
 func clear_inventory():
 	for n in inventory.get_children():
 		inventory.remove_child(n)
