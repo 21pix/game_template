@@ -13,8 +13,11 @@ func _ready() -> void:
 	
 func button_action():
 	GlobalsPlayer.transfert_object_to_player.emit(child_item_name)
-	inventory_b_slot.queue_free()
+	delete_slot()
 	
+func delete_slot():
+	inventory_b_slot.queue_free()
+		
 func get_item_info(item):
 	child_item_name = item.item_name
 	icon = item.inv_icon

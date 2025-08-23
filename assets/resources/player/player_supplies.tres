@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerSuppliesList" load_steps=4 format=3 uid="uid://bdudlt36yv88s"]
+[gd_resource type="Resource" script_class="PlayerSuppliesList" load_steps=5 format=3 uid="uid://bdudlt36yv88s"]
 
 [ext_resource type="Script" uid="uid://cdndqpn5qn3xk" path="res://assets/resources/player/player_supplies.gd" id="1_623tj"]
 [ext_resource type="Script" uid="uid://bmsh41tke3o67" path="res://assets/resources/items/SupplyItem.gd" id="2_gb24j"]
 [ext_resource type="Resource" uid="uid://bj323to8rkcyn" path="res://assets/resources/items/supply_medkit.tres" id="4_7cpnw"]
+[ext_resource type="Resource" uid="uid://7ulbpixxlo2" path="res://assets/resources/items/supply_water.tres" id="4_ku8t3"]
 
 [resource]
 script = ExtResource("1_623tj")
-supplies = Array[ExtResource("2_gb24j")]([ExtResource("4_7cpnw")])
+supplies = Array[ExtResource("2_gb24j")]([ExtResource("4_7cpnw"), ExtResource("4_7cpnw"), ExtResource("4_ku8t3")])
 metadata/_custom_type_script = "uid://cdndqpn5qn3xk"
