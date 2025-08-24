@@ -15,6 +15,8 @@ signal trader_add_object(object)
 signal remove_object(object)
 signal transfert_object_to_player(object)
 signal transfert_object_to_trader(object)
+signal inventory_player_reset
+signal inventory_trader_reset
 signal inv_add
 signal inv_b_add
 signal inv_p_remove

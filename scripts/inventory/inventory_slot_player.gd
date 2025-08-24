@@ -1,5 +1,5 @@
-extends InventorySub
-class_name InventorySlot
+extends Node
+class_name InventorySlotold
 
 @onready var hosted_item: Resource
 @onready var icon: Texture2D

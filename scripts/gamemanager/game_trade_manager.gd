@@ -125,5 +125,30 @@ func trader_add_object(new_object):
 			GlobalsPlayer.inventory_b_content.append(trade_object)
 			GlobalsPlayer.emit_signal("inv_b_reset")
 
-	
-	
+#----------------------------------- ADD ITEM GENERIC	
+func receiver_add_item(receiver, new_item, inventory_reset):
+	for trade_object in trade_list.trade_list:
+		if new_item == trade_object.item_name:
+			receiver.append(trade_object) # RECEIVER SUPPLIES LIST
+			GlobalsPlayer.emit_signal(inventory_reset)
+
+#----------------------------------- REMOVE ITEM GENERIC
+func owner_remove_item(owner, lost_item, inventory_reset):
+	for item in owner:
+		if item.item_name == lost_item:
+			owner.erase(item)	
+			GlobalsPlayer.emit_signal(inventory_reset)
+
+#----------------------------------- TRANSFER ITEM GENERIC
+func transfert_item_generic(owner, receiver, trade_item, inventory_reset):
+	owner_remove_item(owner, trade_item, inventory_reset)
+	receiver_add_item(receiver, trade_item, inventory_reset)
+
+#---------------------------------- DROP ITEM GENERIC
+func drop_item_generic(owner, lost_item, inventory_reset):
+	for item in owner:
+		if item.item_name == lost_item:
+			owner.erase(item)	
+			GlobalsPlayer.emit_signal(inventory_reset)
+			item_to_spawn = item.spawn_item
+			spawn_actors.spawn_lost_item(item_to_spawn)
