@@ -14,6 +14,8 @@ func init_player_equipment():
 	GlobalsPlayer.player_equip_full.append_array(player_weaponset)
 	GlobalsPlayer.player_equip_full.append_array(player_itemset)
 
+#	print("player equipment init : ", GlobalsPlayer.player_equip_full)
+	
 func update_player_equipment_add(item, amount):
 	for n in amount:
 		GlobalsPlayer.player_equip_full.append(item)

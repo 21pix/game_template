@@ -1,5 +1,5 @@
 extends InventoryB
-class_name InventoryBSlot
+class_name InventoryBSlot_old
 
 @onready var icon: Texture2D
 @onready var child_item_name: String

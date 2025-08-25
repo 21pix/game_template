@@ -13,7 +13,7 @@ class_name FPS_player
 @onready var interact_ray: RayCast3D = $Head/Camera/InteractDetect/InteractRay
 @onready var interact_detect: Area3D = $Head/Camera/InteractDetect
 
-@onready var inventory_player: Inventorymain = $InventoryPlayer
+@onready var inventory_main: Inventorymain = $InventoryMain
 
 @export var invert_weapon_sway : bool = false
 
@@ -159,9 +159,9 @@ func handle_controls(_delta):
 		
 	if Input.is_action_just_released("inventory"):
 		
-		if !GlobalsPlayer.inventory_on :
+		if !GlobalsPlayer.inventory_player_on :
 			if !GlobalsPlayer.chest_available:
-				inventory_player.open_player_inventory()
+				inventory_main.open_player_inventory()
 				mouse_captured = false
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				crosshair.visible = false
@@ -170,13 +170,13 @@ func handle_controls(_delta):
 				print("open inv 2")
 				Globals.emit_signal("interact")
 				interact_detect.interact()
-				inventory_player.open_both_inventory()
+				inventory_main.open_both_inventory()
 				mouse_captured = false
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				crosshair.visible = false		
 					
-		elif GlobalsPlayer.inventory_on:
-			inventory_player.close_both_inventory()
+		elif GlobalsPlayer.inventory_player_on:
+			inventory_main.close_both_inventory()
 			mouse_captured = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			crosshair.visible = true

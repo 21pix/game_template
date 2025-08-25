@@ -150,8 +150,8 @@ weaponcontainer=""
 player_equipment=""
 LevelItems=""
 inventory_player=""
-inventory_b=""
 active_chest=""
+inventory_trader=""
 
 [input]
 

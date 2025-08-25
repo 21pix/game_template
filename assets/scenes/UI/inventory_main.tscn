@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://du2qun766f1b2"]
 
 [ext_resource type="Script" uid="uid://bectwik4yioq" path="res://scripts/inventory/inventory_main.gd" id="1_yi1wh"]
-[ext_resource type="Script" uid="uid://bnqcpyo4h0bld" path="res://scripts/inventory/inventory_sub.gd" id="2_mc5g2"]
+[ext_resource type="Script" uid="uid://bnqcpyo4h0bld" path="res://scripts/inventory/inventory_sub_player.gd" id="2_mc5g2"]
 
 [node name="InventoryMain" type="CanvasLayer"]
 script = ExtResource("1_yi1wh")
@@ -22,7 +22,7 @@ grow_vertical = 2
 columns = 3
 script = ExtResource("2_mc5g2")
 
-[node name="inventory_trader" type="GridContainer" parent="." groups=["inventory_b"]]
+[node name="inventory_trader" type="GridContainer" parent="." groups=["inventory_trader"]]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,4 +36,3 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
-script = ExtResource("2_mc5g2")

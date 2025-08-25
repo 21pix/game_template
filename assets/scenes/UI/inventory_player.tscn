@@ -23,7 +23,7 @@ grow_vertical = 2
 columns = 3
 script = ExtResource("1_tehe8")
 
-[node name="inventoryb" type="GridContainer" parent="." groups=["inventory_b"]]
+[node name="inventoryb" type="GridContainer" parent="." groups=["inventory_trader"]]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

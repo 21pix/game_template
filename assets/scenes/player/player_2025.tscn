@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://cysefthhtrtg" path="res://assets/sounds/player/footstep2.mp3" id="16_ue4ap"]
 [ext_resource type="Resource" uid="uid://bdudlt36yv88s" path="res://assets/resources/player/player_supplies.tres" id="16_vljct"]
 [ext_resource type="AudioStream" uid="uid://bo27s3pm3ps85" path="res://assets/sounds/player/footstep.mp3" id="17_dt2h8"]
-[ext_resource type="PackedScene" uid="uid://ddbjsj0hqgbn8" path="res://assets/scenes/UI/inventory_player.tscn" id="17_xrp01"]
+[ext_resource type="PackedScene" uid="uid://du2qun766f1b2" path="res://assets/scenes/UI/inventory_main.tscn" id="17_xrp01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tars"]
 size = Vector3(0.080188, 0.0655396, 1.35823)
@@ -431,7 +431,7 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.514, -0.432644)
 shape = SubResource("BoxShape3D_xff14")
 
-[node name="InventoryPlayer" parent="." instance=ExtResource("17_xrp01")]
+[node name="InventoryMain" parent="." instance=ExtResource("17_xrp01")]
 
 [connection signal="area_entered" from="Head/Camera/InteractDetect" to="Head/Camera/InteractDetect" method="_on_area_entered"]
 [connection signal="area_entered" from="Head/Camera/InteractDetect" to="HUD" method="_on_interact_detect_area_entered"]

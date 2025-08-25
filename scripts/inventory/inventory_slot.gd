@@ -1,5 +1,5 @@
-extends InventorySub
-class_name InventorySlot
+extends Node
+class_name InventorySlot_old
 
 @onready var hosted_item: Resource
 @onready var icon: Texture2D
@@ -11,6 +11,7 @@ class_name InventorySlot
 
 func _ready() -> void:
 	button.pressed.connect(button_action)
+	
 #-------------------- ON SLOT SPAWN			
 func get_item_info(item):
 	child_item_name = item.item_name
