@@ -7,7 +7,8 @@ class_name InventorySlotPlayer
 @onready var button: Button = $Button
 @onready var slotname: String
 @onready var inventory_player_slot: InventorySlotPlayer = $"."
-@onready var inventory_b = get_tree().get_first_node_in_group("inventory_b")
+@onready var inventory_trader = get_tree().get_first_node_in_group("inventory_trader")
+@onready var inventory_player = get_tree().get_first_node_in_group("inventory_player")
 
 func _ready() -> void:
 	button.pressed.connect(button_action)
@@ -32,7 +33,7 @@ func button_action():
 		
 	if GlobalsPlayer.inventory_trader_on:
 		GlobalsPlayer.transfert_object_to_trader.emit(child_item_name)
-		inventory_b.initialize_inventory()
+		inventory_trader.initialize_inventory()
 		inventory_player_slot.queue_free()
 
 func delete_slot():

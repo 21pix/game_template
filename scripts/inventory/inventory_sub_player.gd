@@ -3,7 +3,6 @@ class_name InventorySub_player
 
 @onready var player_inventory_list: Array
 @onready var trader_inventory_list: Array
-@onready var inventory_list_group= [player_inventory_list, trader_inventory_list]
 @onready var items_in_inv: Array
 @onready var item_amount: int
 @onready var slots: Array[InventorySlotPlayer]

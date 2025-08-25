@@ -18,7 +18,7 @@ func _ready() -> void:
 	GlobalsPlayer.connect("add_object", player_add_object)
 	GlobalsPlayer.connect("trader_add_object", trader_add_object)
 	GlobalsPlayer.connect("player_remove_object", player_drop_item)
-	GlobalsPlayer.connect("transfert_object_to_player", transfert_item_from_chest_to_player)
+	GlobalsPlayer.connect("transfert_item", transfert_item_generic)
 	GlobalsPlayer.connect("transfert_object_to_trader", transfert_item_from_player_to_chest)
 			
 #------------------- TRANSFERT FROM PLAYER TO NPC --------------------------------------------------
@@ -124,9 +124,9 @@ func owner_remove_item(owner, lost_item, inventory_reset):
 			GlobalsPlayer.emit_signal(inventory_reset)
 
 #----------------------------------- TRANSFER ITEM GENERIC
-func transfert_item_generic(owner, receiver, trade_item, inventory_reset):
-	owner_remove_item(owner, trade_item, inventory_reset)
-	receiver_add_item(receiver, trade_item, 1, inventory_reset)
+func transfert_item_generic(owner, receiver, trade_item, inventory_reset1, inventory_reset2):
+	owner_remove_item(owner, trade_item, inventory_reset1)
+	receiver_add_item(receiver, trade_item, 1, inventory_reset2)
 
 # --------------------------------- PLAYER DROP ITEM
 func player_drop_item(lost_item):

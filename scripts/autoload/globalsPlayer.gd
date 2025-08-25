@@ -13,7 +13,7 @@ signal player_enemy_to_f2
 signal add_object(new_item, amount)
 signal trader_add_object(object)
 signal player_remove_object(object)
-signal transfert_object_to_player(object)
+signal transfert_item
 signal transfert_object_to_trader(object)
 signal inventory_player_reset
 signal inventory_trader_reset
