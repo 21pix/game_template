@@ -20,8 +20,8 @@ func interact(Node):
 	if is_instance_valid(prop_self):	
 		if GlobalsPlayer.chest_available:
 			prop_self.add_to_group("active_chest")
-			GlobalsPlayer.inventory_b_content = []
-			GlobalsPlayer.inventory_b_content.append_array(chest_content.items)
+			GlobalsPlayer.inventory_trader_content = []
+			GlobalsPlayer.inventory_trader_content.append_array(chest_content.items)
 			Audio.play(sound)
 		else:
 			prop_self.remove_from_group("active_chest")

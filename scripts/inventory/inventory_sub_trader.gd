@@ -1,24 +1,20 @@
 extends Node
 class_name InventorySub_trader
 
-@onready var player_inventory_list: Array
 @onready var trader_inventory_list: Array
-@onready var inventory_list_group= [player_inventory_list, trader_inventory_list]
+
 @onready var items_in_inv: Array
 @onready var item_amount: int
-@onready var slots: Array[InventorySlot]
+@onready var slots: Array[InventorySlotTrader]
 
 @onready var inventory_trader = get_tree().get_first_node_in_group("inventory_trader")
-@onready var inventory_player = get_tree().get_first_node_in_group("inventory_player")
-@onready var inventory_group:Array = [inventory_trader, inventory_player]
-
 
 #@onready var inventory_player: CanvasLayer = $InventoryPlayer
 
-var SLOT_SCENE = preload("res://assets/scenes/UI/inventory_slot.tscn")
+var SLOT_SCENE = preload("res://assets/scenes/UI/inventory_trader_slot.tscn")
 
 func _ready() -> void:
-	GlobalsPlayer.connect("inventory_reset", initialize_inventory)
+	GlobalsPlayer.connect("inventory_trader_reset", initialize_inventory)
 	GlobalsPlayer.connect("remove_slot", remove_item)
 
 func initialize_inventory():
@@ -26,24 +22,22 @@ func initialize_inventory():
 	populate_list()
 	
 func clear_inventory():
-	for n in inventory_player.get_children():
-		inventory_player.remove_child(n)
+	for n in inventory_trader.get_children():
+		inventory_trader.remove_child(n)
 		n.queue_free()	
 	
 func populate_list():
 	slots = []
 	items_in_inv = []	
-	player_inventory_list = []
 	trader_inventory_list = []
-	player_inventory_list = GlobalsPlayer.player_equip_full
 	trader_inventory_list = GlobalsPlayer.inventory_trader_content
-	print("player inventory list : ", player_inventory_list)
+	print("trader inventory list : ", trader_inventory_list)
 	populate_inventory()
 	
 func populate_inventory():
 	
-	for item in player_inventory_list:
-		add_item(inventory_player, item, player_inventory_list)
+	for item in trader_inventory_list:
+		add_item(inventory_trader, item, trader_inventory_list)
 
 func add_item(inventory, item, inventory_list):
 	print("add item started")
@@ -67,7 +61,7 @@ func remove_item(slot_selected, item):
 		slot_selected.delete_slot()	
 	
 	elif items_in_inv.count(item) >= 2:
-		item_amount = player_inventory_list.count(item)
+		item_amount = trader_inventory_list.count(item)
 		for slot in slots:
 			if slot.slotname == item.item_name :
 				print(item.inv_name," ", "amount : ", item_amount)

@@ -1,12 +1,12 @@
 extends Node
-class_name InventorySlot
+class_name InventorySlotPlayer
 
 @onready var hosted_item: Resource
 @onready var icon: Texture2D
 @onready var child_item_name: String
 @onready var button: Button = $Button
 @onready var slotname: String
-@onready var inventory_player_slot: InventorySlot = $"."
+@onready var inventory_player_slot: InventorySlotPlayer = $"."
 @onready var inventory_b = get_tree().get_first_node_in_group("inventory_b")
 
 func _ready() -> void:

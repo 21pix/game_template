@@ -1,11 +1,11 @@
-extends InventoryB
-class_name InventoryBSlot
+extends Node
+class_name InventorySlotTrader
 
 @onready var icon: Texture2D
 @onready var child_item_name: String
 @onready var slotname: String
 @onready var button: Button = $Button
-@onready var inventory_b_slot: InventoryBSlot = $"."
+@onready var inventory_trader_slot: InventorySlotTrader = $"."
 
 
 func _ready() -> void:
@@ -16,7 +16,7 @@ func button_action():
 	delete_slot()
 	
 func delete_slot():
-	inventory_b_slot.queue_free()
+	inventory_trader_slot.queue_free()
 		
 func get_item_info(item):
 	child_item_name = item.item_name

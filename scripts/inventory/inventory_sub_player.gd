@@ -6,7 +6,7 @@ class_name InventorySub_player
 @onready var inventory_list_group= [player_inventory_list, trader_inventory_list]
 @onready var items_in_inv: Array
 @onready var item_amount: int
-@onready var slots: Array[InventorySlot]
+@onready var slots: Array[InventorySlotPlayer]
 
 @onready var inventory_trader = get_tree().get_first_node_in_group("inventory_trader")
 @onready var inventory_player = get_tree().get_first_node_in_group("inventory_player")
